@@ -46,8 +46,12 @@ class _HomeScreenState extends State<HomeScreen> {
         bucket: bucket,
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(_icons[2]),
-        backgroundColor: Colors.orangeAccent,
+        child: Icon(
+          _icons[2],
+          color: Colors.white,
+          size: 20,
+        ),
+        backgroundColor: Colors.blueAccent,
         onPressed: () {
           setState(() {
             currentScreen = Dashboard();
