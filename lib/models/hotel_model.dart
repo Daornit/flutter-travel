@@ -16,7 +16,7 @@ final List<Hotel> hotels = [
   Hotel(
     imageUrl: 'assets/images/hotel0.jpg',
     name: 'Hotel 0',
-    address: '404 Great St',
+    address: '404 Great St fd sfd sf ds fds fds fds fds fds fds fds fds ',
     price: 175,
   ),
   Hotel(

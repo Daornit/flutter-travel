@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_travel_ui/screens/browser_screen.dart';
+
+import 'package:flutter_travel_ui/screens/ihotel_screen.dart';
+import 'package:flutter_travel_ui/screens/joinme_screen.dart';
 import 'package:flutter_travel_ui/screens/provinces_screen.dart';
-import 'package:flutter_travel_ui/widgets/destination_carousel.dart';
-import 'package:flutter_travel_ui/widgets/hotel_carousel.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'dashboard_screen.dart';
+import 'help_screen.dart';
 import 'info_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -14,8 +15,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  // Properties
-  int _selectedIndex = 0;
   int _currentTab = 2;
 
   List<IconData> _icons = [
@@ -24,14 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
     FontAwesomeIcons.home,
     FontAwesomeIcons.bed,
     FontAwesomeIcons.suitcase,
-  ];
-
-  final List<Widget> screens = [
-    Info(),
-    Provinces(),
-    Dashboard(),
-    Browser(),
-    Browser(),
+    FontAwesomeIcons.questionCircle,
   ];
 
   // Active page (Tab)
@@ -41,9 +33,54 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageStorage(
-        child: currentScreen,
-        bucket: bucket,
+      body: Stack(
+        alignment: Alignment.topRight,
+        children: <Widget>[
+          PageStorage(
+            child: currentScreen,
+            bucket: bucket,
+          ),
+          Positioned(
+            top: 0,
+            right: 30,
+            child: GestureDetector(
+              onTap: () {
+                setState(() {
+                  currentScreen = Help();
+                  _currentTab = 5;
+                });
+              },
+              child: Container(
+                width: 80,
+                height: 100,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 20.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Icon(
+                        _icons[5],
+                        color: Colors.white,
+                      ),
+                      Text(
+                        'яаралтай',
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.blueAccent.shade700,
+                  borderRadius: BorderRadius.only(
+                      bottomRight: Radius.circular(10.0),
+                      bottomLeft: Radius.circular(10.0)),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(
@@ -82,12 +119,16 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: <Widget>[
                         Icon(
                           _icons[0],
-                          color: _currentTab == 0 ? Colors.blue : Colors.grey,
+                          color: _currentTab == 0
+                              ? Colors.blueAccent
+                              : Colors.grey,
                         ),
                         Text(
                           'Мэдээ',
                           style: TextStyle(
-                            color: _currentTab == 0 ? Colors.blue : Colors.grey,
+                            color: _currentTab == 0
+                                ? Colors.blueAccent
+                                : Colors.grey,
                           ),
                         ),
                       ],
@@ -106,12 +147,16 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: <Widget>[
                         Icon(
                           _icons[1],
-                          color: _currentTab == 1 ? Colors.blue : Colors.grey,
+                          color: _currentTab == 1
+                              ? Colors.blueAccent
+                              : Colors.grey,
                         ),
                         Text(
                           'Аймгууд',
                           style: TextStyle(
-                            color: _currentTab == 1 ? Colors.blue : Colors.grey,
+                            color: _currentTab == 1
+                                ? Colors.blueAccent
+                                : Colors.grey,
                           ),
                         ),
                       ],
@@ -125,7 +170,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     minWidth: 40,
                     onPressed: () {
                       setState(() {
-                        currentScreen = Browser();
+                        currentScreen = IHotel(
+                          url: 'https://ihotel.mn/',
+                          title: 'IHotel',
+                        );
                         _currentTab = 3;
                       });
                     },
@@ -134,12 +182,16 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: <Widget>[
                         Icon(
                           _icons[3],
-                          color: _currentTab == 3 ? Colors.blue : Colors.grey,
+                          color: _currentTab == 3
+                              ? Colors.blueAccent
+                              : Colors.grey,
                         ),
                         Text(
-                          'Мэдээ',
+                          'Буудал',
                           style: TextStyle(
-                            color: _currentTab == 3 ? Colors.blue : Colors.grey,
+                            color: _currentTab == 3
+                                ? Colors.blueAccent
+                                : Colors.grey,
                           ),
                         ),
                       ],
@@ -149,7 +201,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     minWidth: 40,
                     onPressed: () {
                       setState(() {
-                        currentScreen = Browser();
+                        currentScreen = JoinMe(
+                          url: 'https://joinme.mn/',
+                          title: 'Join me',
+                        );
                         _currentTab = 4;
                       });
                     },
@@ -158,12 +213,16 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: <Widget>[
                         Icon(
                           _icons[4],
-                          color: _currentTab == 4 ? Colors.blue : Colors.grey,
+                          color: _currentTab == 4
+                              ? Colors.blueAccent
+                              : Colors.grey,
                         ),
                         Text(
-                          'Аймгууд',
+                          'Аяллууд',
                           style: TextStyle(
-                            color: _currentTab == 4 ? Colors.blue : Colors.grey,
+                            color: _currentTab == 4
+                                ? Colors.blueAccent
+                                : Colors.grey,
                           ),
                         ),
                       ],

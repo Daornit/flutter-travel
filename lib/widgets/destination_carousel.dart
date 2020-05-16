@@ -14,25 +14,25 @@ class DestinationCarousel extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text(
-                'Top Destinations',
+                'Аяллууд',
                 style: TextStyle(
-                  fontSize: 22.0,
+                  fontSize: 18.0,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1.5,
                 ),
               ),
-              GestureDetector(
-                onTap: () => print('See All'),
-                child: Text(
-                  'See All',
-                  style: TextStyle(
-                    color: Theme.of(context).primaryColor,
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.w600,
-                    letterSpacing: 1.0,
-                  ),
-                ),
-              ),
+//              GestureDetector(
+//                onTap: () => print('See All'),
+//                child: Text(
+//                  'Дэлгэрэнгүй',
+//                  style: TextStyle(
+//                    color: Theme.of(context).primaryColor,
+//                    fontSize: 12.0,
+//                    fontWeight: FontWeight.w600,
+//                    letterSpacing: 1.0,
+//                  ),
+//                ),
+//              ),
             ],
           ),
         ),
@@ -53,7 +53,7 @@ class DestinationCarousel extends StatelessWidget {
                   ),
                 ),
                 child: Container(
-                  margin: EdgeInsets.all(10.0),
+                  margin: EdgeInsets.only(top: 10.0, bottom: 10.0),
                   width: 210.0,
                   child: Stack(
                     alignment: Alignment.topCenter,
