@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_travel_ui/models/trip_model.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class TravelCarousel extends StatelessWidget {
   TravelCarousel({this.trips});
   final List<Trip> trips;
+
+  _launchURL(url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +25,7 @@ class TravelCarousel extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text(
-                'Аяллууд',
+                'Онцлох аяллууд',
                 style: TextStyle(
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,
@@ -46,7 +55,9 @@ class TravelCarousel extends StatelessWidget {
             itemBuilder: (BuildContext context, int index) {
               Trip trip = trips[index];
               return GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  _launchURL(trip.link);
+                },
                 child: Container(
                   margin: EdgeInsets.only(top: 10.0, bottom: 10.0),
                   width: 210.0,

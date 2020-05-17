@@ -32,24 +32,10 @@ class _ProvinceScreenState extends State<ProvinceScreen> {
                       bottomLeft: Radius.circular(30.0),
                     ),
                     child: Image(
+                      width: double.infinity,
                       image: AssetImage(widget.province.imageUrl),
                       fit: BoxFit.cover,
                     ),
-                  ),
-                ),
-                Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 10.0, vertical: 40.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      IconButton(
-                        icon: Icon(Icons.arrow_back),
-                        iconSize: 30.0,
-                        color: Colors.black,
-                        onPressed: () => Navigator.pop(context),
-                      ),
-                    ],
                   ),
                 ),
                 Positioned(
@@ -96,6 +82,21 @@ class _ProvinceScreenState extends State<ProvinceScreen> {
                             ],
                           ),
                         ],
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 10.0, vertical: 40.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      IconButton(
+                        icon: Icon(Icons.arrow_back),
+                        iconSize: 30.0,
+                        color: Colors.white,
+                        onPressed: () => Navigator.pop(context),
                       ),
                     ],
                   ),

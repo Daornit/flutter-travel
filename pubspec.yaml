@@ -48,6 +48,26 @@ flutter:
   assets:
     - assets/images/
     - assets/provinces/arhangai/
+    - assets/provinces/bayanulgii/
+    - assets/provinces/bayanhongor/
+    - assets/provinces/bulgan/
+    - assets/provinces/darhan_uul/
+    - assets/provinces/dornod/
+    - assets/provinces/dornogovi/
+    - assets/provinces/dundgovi/
+    - assets/provinces/govi_altai/
+    - assets/provinces/govisumber/
+    - assets/provinces/hentii/
+    - assets/provinces/hovd/
+    - assets/provinces/huvsgul/
+    - assets/provinces/orhon/
+    - assets/provinces/selenge/
+    - assets/provinces/sukhbaatar/
+    - assets/provinces/tuv/
+    - assets/provinces/umnugovi/
+    - assets/provinces/uvs/
+    - assets/provinces/uvurhangai/
+    - assets/provinces/zavhan/
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

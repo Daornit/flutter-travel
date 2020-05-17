@@ -25,14 +25,14 @@ final List<Trip> trips = [
   Trip(
     name: 'Hotel 1',
     province: 'Увс',
-    link: '404 Great St',
+    link: 'https://ihotel.mn/mn/search/hotel?hotel=305',
     sum: "test",
     imageUrl: 'assets/images/hotel1.jpg',
   ),
   Trip(
     name: 'Hotel 2',
     province: 'Увс',
-    link: '404 Great St',
+    link: 'https://ihotel.mn/mn/search/hotel?hotel=305',
     sum: "test",
     imageUrl: 'assets/images/hotel2.jpg',
   ),
