@@ -55,7 +55,7 @@ final List<Province> provinces = [
     ],
     hotels: ihotels,
     trips: trips,
-    imageUrl: 'assets/images/bayanulgii.jpg',
+    imageUrl: 'assets/images/img1.jpg',
   ),
   Province(
     name: 'Баян-Өлгий',
@@ -103,7 +103,7 @@ final List<Province> provinces = [
     ],
     hotels: ihotels,
     trips: trips,
-    imageUrl: 'assets/images/bayanulgii.jpg',
+    imageUrl: 'assets/images/img2.jpg',
   ),
   Province(
     name: 'Булган',
@@ -127,7 +127,7 @@ final List<Province> provinces = [
     ],
     hotels: ihotels,
     trips: trips,
-    imageUrl: 'assets/images/bayanulgii.jpg',
+    imageUrl: 'assets/images/img3.jpg',
   ),
   Province(
     name: 'Булган',
@@ -151,7 +151,7 @@ final List<Province> provinces = [
     ],
     hotels: ihotels,
     trips: trips,
-    imageUrl: 'assets/images/bayanulgii.jpg',
+    imageUrl: 'assets/images/img4.jpg',
   ),
   Province(
     name: 'Булган',
@@ -175,7 +175,7 @@ final List<Province> provinces = [
     ],
     hotels: ihotels,
     trips: trips,
-    imageUrl: 'assets/images/bayanulgii.jpg',
+    imageUrl: 'assets/images/img5.jpg',
   ),
   Province(
     name: 'Булган',
@@ -199,7 +199,7 @@ final List<Province> provinces = [
     ],
     hotels: ihotels,
     trips: trips,
-    imageUrl: 'assets/images/bayanulgii.jpg',
+    imageUrl: 'assets/images/img6.jpg',
   ),
   Province(
     name: 'Булган',
@@ -223,7 +223,7 @@ final List<Province> provinces = [
     ],
     hotels: ihotels,
     trips: trips,
-    imageUrl: 'assets/images/bayanulgii.jpg',
+    imageUrl: 'assets/images/img7.jpg',
   ),
   Province(
     name: 'Булган',
@@ -247,7 +247,7 @@ final List<Province> provinces = [
     ],
     hotels: ihotels,
     trips: trips,
-    imageUrl: 'assets/images/bayanulgii.jpg',
+    imageUrl: 'assets/images/img8.jpg',
   ),
   Province(
     name: 'Булган',
@@ -271,6 +271,6 @@ final List<Province> provinces = [
     ],
     hotels: ihotels,
     trips: trips,
-    imageUrl: 'assets/images/bayanulgii.jpg',
+    imageUrl: 'assets/images/img9.jpg',
   ),
 ];

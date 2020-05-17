@@ -12,7 +12,7 @@ class HotelCarousel extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text(
-                'Буудалууд',
+                'Буудал & Амралтын газар',
                 style: TextStyle(
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,

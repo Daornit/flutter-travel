@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_travel_ui/components/header.dart';
-import 'package:flutter_travel_ui/models/info.dart';
+import 'file:///C:/Users/batorgil/Desktop/Projects/flutter_travel_ui/lib/widgets/header.dart';
+import 'package:flutter_travel_ui/models/info_model.dart';
 
 class Info extends StatefulWidget {
   @override
@@ -8,6 +8,40 @@ class Info extends StatefulWidget {
 }
 
 class _InfoState extends State<Info> {
+  TextEditingController editingController = TextEditingController();
+
+  final originalItems = informations;
+  var items = List<InfoModel>();
+
+  @override
+  void initState() {
+    items.addAll(originalItems);
+    super.initState();
+  }
+
+  void filterSearchResults(String query) {
+    List<InfoModel> dummySearchList = List<InfoModel>();
+    dummySearchList.addAll(originalItems);
+    if (query.isNotEmpty) {
+      List<InfoModel> dummyListData = List<InfoModel>();
+      dummySearchList.forEach((item) {
+        if (item.title.toLowerCase().contains(query.toLowerCase().trim())) {
+          dummyListData.add(item);
+        }
+      });
+      setState(() {
+        items.clear();
+        items.addAll(dummyListData);
+      });
+      return;
+    } else {
+      setState(() {
+        items.clear();
+        items.addAll(originalItems);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,37 +52,26 @@ class _InfoState extends State<Info> {
             color: Colors.white,
             child: Column(
               children: <Widget>[
-                Header(
-                  title: 'Мэдээ мэдээлэл',
-                ),
                 Padding(
                   padding: const EdgeInsets.all(20.0),
-                  child: Row(
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Icon(
-                          Icons.search,
-                          color: Colors.grey,
-                        ),
-                      ),
-                      Expanded(
-                        child: TextField(
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Хайлт хийх',
-                          ),
-                        ),
-                      ),
-                    ],
+                  child: TextField(
+                    onChanged: filterSearchResults,
+                    controller: editingController,
+                    decoration: InputDecoration(
+                        labelText: "Хайх",
+                        hintText: "Хайх",
+                        prefixIcon: Icon(Icons.search),
+                        border: OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(25.0)))),
                   ),
                 ),
                 Expanded(
                   child: ListView.builder(
                     padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
-                    itemCount: informations.length,
+                    itemCount: items.length,
                     itemBuilder: (BuildContext context, int index) {
-                      InfoModel information = informations[index];
+                      InfoModel information = items[index];
 
                       return Stack(
                         children: <Widget>[

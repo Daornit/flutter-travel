@@ -32,6 +32,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    double bottom = MediaQuery.of(context).viewInsets.bottom;
+
     return Scaffold(
       body: Stack(
         alignment: Alignment.topRight,
@@ -82,20 +84,22 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(
-          _icons[2],
-          color: Colors.white,
-          size: 20,
-        ),
-        backgroundColor: Colors.blueAccent,
-        onPressed: () {
-          setState(() {
-            currentScreen = Dashboard();
-            _currentTab = 2;
-          });
-        },
-      ),
+      floatingActionButton: bottom != 0.0
+          ? SizedBox()
+          : FloatingActionButton(
+              child: Icon(
+                _icons[2],
+                color: Colors.white,
+                size: 20,
+              ),
+              backgroundColor: Colors.blueAccent,
+              onPressed: () {
+                setState(() {
+                  currentScreen = Dashboard();
+                  _currentTab = 2;
+                });
+              },
+            ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
         shape: CircularNotchedRectangle(),

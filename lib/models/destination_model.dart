@@ -46,7 +46,7 @@ List<Activity> activities = [
 List<Destination> destinations = [
   Destination(
     imageUrl: 'assets/images/venice.jpg',
-    city: 'Venice',
+    city: 'ЦААЧДЫН ЦЭНХЭР УУЛС 1 - ТАВ ТУХТАЙ АЯЛАЛ',
     country: 'Italy',
     description: 'Visit Venice for an amazing and unforgettable adventure.',
     activities: activities,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_travel_ui/models/province_model.dart';
 import 'package:flutter_travel_ui/screens/province_screen.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ProvinceCarousel extends StatelessWidget {
   @override
@@ -87,13 +88,9 @@ class ProvinceCarousel extends StatelessWidget {
                           child: Stack(
                             children: <Widget>[
                               Hero(
-                                tag: province.name,
+                                tag: province.imageUrl,
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(20.0),
-//                                    child: Container(
-//                                      height: 100.0,
-//                                      width: 150.0,
-//                                    ),
                                   child: Image(
                                     height: 100.0,
                                     width: 150.0,
@@ -116,6 +113,22 @@ class ProvinceCarousel extends StatelessWidget {
                                         fontWeight: FontWeight.w600,
                                         letterSpacing: 1.2,
                                       ),
+                                    ),
+                                    Row(
+                                      children: <Widget>[
+                                        Icon(
+                                          FontAwesomeIcons.locationArrow,
+                                          size: 10.0,
+                                          color: Colors.white,
+                                        ),
+                                        SizedBox(width: 5.0),
+                                        Text(
+                                          province.center,
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ],
                                 ),

@@ -63,22 +63,6 @@ class _DestinationScreenState extends State<DestinationScreen> {
                       color: Colors.black,
                       onPressed: () => Navigator.pop(context),
                     ),
-                    Row(
-                      children: <Widget>[
-                        IconButton(
-                          icon: Icon(Icons.search),
-                          iconSize: 30.0,
-                          color: Colors.black,
-                          onPressed: () => Navigator.pop(context),
-                        ),
-                        IconButton(
-                          icon: Icon(FontAwesomeIcons.sortAmountDown),
-                          iconSize: 25.0,
-                          color: Colors.black,
-                          onPressed: () => Navigator.pop(context),
-                        ),
-                      ],
-                    ),
                   ],
                 ),
               ),
