@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'file:///C:/Users/batorgil/Desktop/Projects/flutter_travel_ui/lib/widgets/header.dart';
+import 'package:flutter_travel_ui/models/entry.dart';
+import 'package:flutter_travel_ui/widgets/entry_item.dart';
+import 'package:flutter_travel_ui/widgets/header.dart';
 
 class Help extends StatefulWidget {
   @override
@@ -21,10 +23,10 @@ class _HelpState extends State<Help> {
                   title: 'Яаралтай тусламж',
                 ),
                 Expanded(
-                  child: ListView(
-                    children: <Widget>[
-                      SizedBox(height: 20.0),
-                    ],
+                  child: ListView.builder(
+                    itemBuilder: (BuildContext context, int index) =>
+                        EntryItem(entries[index]),
+                    itemCount: entries.length,
                   ),
                 )
               ],

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'file:///C:/Users/batorgil/Desktop/Projects/flutter_travel_ui/lib/widgets/header.dart';
+import 'package:flutter_travel_ui/models/province_model.dart';
+import 'package:flutter_travel_ui/screens/province_screen.dart';
+import 'package:flutter_travel_ui/widgets/header.dart';
 
 class Provinces extends StatefulWidget {
   @override
@@ -23,89 +25,107 @@ class _ProvincesState extends State<Provinces> {
                 Expanded(
                   child: ListView.builder(
                     padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
-                    itemCount: 10,
+                    itemCount: provinces.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return Stack(
-                        children: <Widget>[
-                          Container(
-                            margin: EdgeInsets.fromLTRB(40.0, 5.0, 20.0, 5.0),
-                            height: 120.0,
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(20.0),
+                      Province province = provinces[index];
+                      return GestureDetector(
+                        onTap: () {
+                          print('Test one aimag');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => ProvinceScreen(
+                                province: province,
+                              ),
                             ),
-                            child: Padding(
-                              padding:
-                                  EdgeInsets.fromLTRB(100.0, 20.0, 20.0, 20.0),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: <Widget>[
-                                      Container(
-                                        width: 120.0,
-                                        child: Text(
-                                          'Баян-өлгий',
-                                          style: TextStyle(
-                                            fontSize: 18.0,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                          overflow: TextOverflow.ellipsis,
-                                          maxLines: 2,
-                                        ),
-                                      ),
-                                      Column(
-                                        children: <Widget>[
-                                          Text(
-                                            '150 km',
+                          );
+                        },
+                        child: Stack(
+                          children: <Widget>[
+                            Container(
+                              margin: EdgeInsets.fromLTRB(40.0, 5.0, 20.0, 5.0),
+                              height: 120.0,
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(20.0),
+                              ),
+                              child: Padding(
+                                padding: EdgeInsets.fromLTRB(
+                                    100.0, 20.0, 20.0, 20.0),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Container(
+                                          width: 120.0,
+                                          child: Text(
+                                            province.name,
                                             style: TextStyle(
                                               fontSize: 18.0,
                                               fontWeight: FontWeight.w600,
                                             ),
+                                            overflow: TextOverflow.ellipsis,
+                                            maxLines: 2,
                                           ),
-                                          Text(
-                                            'нийт зам',
-                                            style: TextStyle(
-                                              color: Colors.grey,
+                                        ),
+                                        Column(
+                                          children: <Widget>[
+                                            Text(
+                                              province.distanceFromUb
+                                                      .toString() +
+                                                  ' km',
+                                              style: TextStyle(
+                                                fontSize: 18.0,
+                                                fontWeight: FontWeight.w600,
+                                              ),
                                             ),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                  Text(
-                                    '6 цаг 24 мин',
-                                    style: TextStyle(
-                                      color: Colors.grey,
+                                            Text(
+                                              'нийт зам',
+                                              style: TextStyle(
+                                                color: Colors.grey,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
                                     ),
-                                  ),
-                                  SizedBox(height: 10.0),
-                                ],
-                              ),
-                            ),
-                          ),
-                          Positioned(
-                            left: 20.0,
-                            top: 15.0,
-                            bottom: 15.0,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(20.0),
-                              child: Image(
-                                width: 110.0,
-                                image: AssetImage(
-                                  'assets/images/bayanulgii.jpg',
+                                    Text(
+                                      province.timeToReach,
+                                      style: TextStyle(
+                                        color: Colors.grey,
+                                      ),
+                                    ),
+                                    SizedBox(height: 10.0),
+                                  ],
                                 ),
-                                fit: BoxFit.cover,
                               ),
                             ),
-                          ),
-                        ],
+                            Positioned(
+                              left: 20.0,
+                              top: 15.0,
+                              bottom: 15.0,
+                              child: Hero(
+                                tag: province.imageUrl,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(20.0),
+                                  child: Image(
+                                    height: 100.0,
+                                    width: 100.0,
+                                    image: AssetImage(province.imageUrl),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       );
                     },
                   ),

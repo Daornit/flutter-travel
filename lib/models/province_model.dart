@@ -30,14 +30,75 @@ class Province {
   });
 }
 
+final List<IHotel> arhangaiHotels = [
+  IHotel(
+    name: 'Майхан Толгой Жуулчны Бааз',
+    link: 'https://ihotel.mn/mn/search/hotel?hotel=305',
+    imageUrl: 'assets/images/hotel1.jpg',
+  ),
+  IHotel(
+    name: 'Өгий Хишиг Жуулчны Бааз',
+    link: 'https://ihotel.mn/mn/search/hotel?hotel=386',
+    imageUrl: 'assets/images/hotel2.jpg',
+  ),
+  IHotel(
+    name: 'Бадмаараг Жуулчны Бааз',
+    link: 'https://ihotel.mn/mn/search/hotel?hotel=390',
+    imageUrl: 'assets/images/hotel3.jpg',
+  ),
+  IHotel(
+    name: 'Хангай Ресорт',
+    link: 'https://ihotel.mn/mn/search/hotel?hotel=136',
+    imageUrl: 'assets/images/hotel4.jpg',
+  ),
+  IHotel(
+    name: 'Дуут Ресорт',
+    link: 'https://ihotel.mn/mn/search/hotel?hotel=137',
+    imageUrl: 'assets/images/hotel5.jpg',
+  ),
+  IHotel(
+    name: 'Сүүн Зам Амралтын Газар',
+    link: 'https://ihotel.mn/mn/search/hotel?hotel=395',
+    imageUrl: 'assets/images/hotel6.jpg',
+  ),
+  IHotel(
+    name: '',
+    link: '',
+    imageUrl: 'assets/images/hotel4.jpg',
+  ),
+  IHotel(
+    name: '',
+    link: '',
+    imageUrl: 'assets/images/hotel4.jpg',
+  ),
+  IHotel(
+    name: '',
+    link: '',
+    imageUrl: 'assets/images/hotel4.jpg',
+  ),
+  IHotel(
+    name: '',
+    link: '',
+    imageUrl: 'assets/images/hotel4.jpg',
+  ),
+  IHotel(
+    name: '',
+    link: '',
+    imageUrl: 'assets/images/hotel4.jpg',
+  ),
+  IHotel(
+    name: '',
+    link: '',
+    imageUrl: 'assets/images/hotel4.jpg',
+  ),
+];
+
 final List<Province> provinces = [
   Province(
     name: 'Архангай',
     center: 'Цэцэрлэг',
-    logo:
-        'https://upload.wikimedia.org/wikipedia/commons/9/94/Mn_coa_arkhangai_aimag_2014.png',
-    address:
-        'https://upload.wikimedia.org/wikipedia/commons/b/be/Arkhangai_in_Mongolia.svg',
+    logo: 'assets/provinces/arhangai/logo.png',
+    address: 'assets/provinces/arhangai/address.jpg',
     shortDesc:
         'Архангай аймаг нь хамгийн хийх жуулчид аялдаг аймгийн нэг бөгөөд Өгий, Тэрхийн цагаан зэрэг нуур болон Хорго, Тайхар чулуу зэрэг галт уулархаг тогтцоороо олны анхаарлыг татдаг. Жилийн дөрвөн улиралд байгалийн үзэсгэлэнт газрууд болон түүхийн гайхамшгуудаараа, Монгол малч ахуйгаараа, уламжлалт ёс, зан үйлээрээ аялал жуулчлалыг хөгжүүлэх бүрэн боломжтой бүс нутаг юм.',
     distanceFromUb: 430,
@@ -53,224 +114,8 @@ final List<Province> provinces = [
       '8. Хар балгас',
       '9. Билгэ хааны цогцолбор',
     ],
-    hotels: ihotels,
+    hotels: arhangaiHotels,
     trips: trips,
-    imageUrl: 'assets/images/img1.jpg',
-  ),
-  Province(
-    name: 'Баян-Өлгий',
-    center: 'Баянхонгор',
-    logo:
-        'https://upload.wikimedia.org/wikipedia/commons/1/1b/Mn_coa_bayankhongor_aymag.png',
-    address:
-        'https://upload.wikimedia.org/wikipedia/commons/7/7a/Bayankhongor_in_Mongolia.svg',
-    shortDesc:
-        'Баянхонгор аймаг нь Монголын баруун өмнөд хэсэгт Хангайн нурууны өмнөх өндөрлөг, Говь-Алтайн нурууны уулс, Алтайн өврийн говийг хамран говь хангайн бүсийг дамнан оршдог аймаг юм. Иймд нутаг нь уул тал хөндий хосолсон хэлбэр бүхий гадаргатай. Зээрэнгийн хөндий, Номингийн говь зэрэг Алтайн өврийн их говиуд, Байдраг, Түй зэрэг томоохон гол мөрдтэй, Бөөнцагаан, Орог нуур, Хөх нуур зэрэг том нууруудтай. Мөн 95 хэм хүрдэг халуунтай Шаргалжуутын рашаан болон Өүхэг рашаан, Хүрэмт рашаан, Халиут рашаан, Өргөөтийн рашаан гэж сайн рашаанууд бий.',
-    distanceFromUb: 630,
-    timeToReach: '8 цаг 55 мин',
-    mustVisitPlaces: [
-      '1. Цагаан агуй',
-      '2. Бичигтхад',
-      '3. Шатар чулуун хөшөө',
-      '4. Түрэгийн үеийн бичээс',
-      '5. Бүгийн цавийн хоолой',
-      '6. Шаргалжуутын халуун рашаан',
-      '7. Их Богд уул',
-    ],
-    hotels: ihotels,
-    trips: trips,
-    imageUrl: 'assets/images/bayanulgii.jpg',
-  ),
-  Province(
-    name: 'Булган',
-    center: 'Булган',
-    logo:
-        'https://upload.wikimedia.org/wikipedia/commons/a/a3/Mn_coa_bulgan_aimag.svg',
-    address:
-        'https://upload.wikimedia.org/wikipedia/commons/0/01/Bulgan_in_Mongolia.svg',
-    shortDesc:
-        'Булган аймаг нь Монгол орны хойд хэсэг, Хангайн бүсийн уулархаг хэсэгт ордог бөгөөд хойд талаараа ОХУ-тай хиллэдэг. Улаанбаатар, Дархан, Эрдэнэт хотуудтай хатуу хучилттай замаар холбогдсон, Монгол улсын хэвтээ болон босоо тэнхлэгийн төв зам 5 сумаар дайран өнгөрдөг. Тус аймаг нь байгийн үзэсгэлэнт газар ихтэй, аялал жуулчлалын бүс нутагт оршдог. Булган аймгийн нутагт Сэлэнгэ, Орхон, Хануй зэрэг том голууд урсах бөгөөд Харгал, Хунт, Айрхан зэрэг нуурууд, Хульж, Хунт, Хануйн, Асгатын зэрэг рашаан бий.',
-    distanceFromUb: 326,
-    timeToReach: '5 цаг 54 мин',
-    mustVisitPlaces: [
-      '1. Хөгнө тарна байгалийн цогцолборт газар',
-      '2. Уран тогоо уул',
-      '3. Шивээт улааны цогцолбор',
-      '4. Хар бухын балгас',
-      '5. Чин толгойн балгас',
-      '6. Бий булгын балгас',
-      '7. Могойн шинэ ус',
-    ],
-    hotels: ihotels,
-    trips: trips,
-    imageUrl: 'assets/images/img2.jpg',
-  ),
-  Province(
-    name: 'Булган',
-    center: 'Булган',
-    logo:
-        'https://upload.wikimedia.org/wikipedia/commons/a/a3/Mn_coa_bulgan_aimag.svg',
-    address:
-        'https://upload.wikimedia.org/wikipedia/commons/0/01/Bulgan_in_Mongolia.svg',
-    shortDesc:
-        'Булган аймаг нь Монгол орны хойд хэсэг, Хангайн бүсийн уулархаг хэсэгт ордог бөгөөд хойд талаараа ОХУ-тай хиллэдэг. Улаанбаатар, Дархан, Эрдэнэт хотуудтай хатуу хучилттай замаар холбогдсон, Монгол улсын хэвтээ болон босоо тэнхлэгийн төв зам 5 сумаар дайран өнгөрдөг. Тус аймаг нь байгийн үзэсгэлэнт газар ихтэй, аялал жуулчлалын бүс нутагт оршдог. Булган аймгийн нутагт Сэлэнгэ, Орхон, Хануй зэрэг том голууд урсах бөгөөд Харгал, Хунт, Айрхан зэрэг нуурууд, Хульж, Хунт, Хануйн, Асгатын зэрэг рашаан бий.',
-    distanceFromUb: 326,
-    timeToReach: '5 цаг 54 мин',
-    mustVisitPlaces: [
-      '1. Хөгнө тарна байгалийн цогцолборт газар',
-      '2. Уран тогоо уул',
-      '3. Шивээт улааны цогцолбор',
-      '4. Хар бухын балгас',
-      '5. Чин толгойн балгас',
-      '6. Бий булгын балгас',
-      '7. Могойн шинэ ус',
-    ],
-    hotels: ihotels,
-    trips: trips,
-    imageUrl: 'assets/images/img3.jpg',
-  ),
-  Province(
-    name: 'Булган',
-    center: 'Булган',
-    logo:
-        'https://upload.wikimedia.org/wikipedia/commons/a/a3/Mn_coa_bulgan_aimag.svg',
-    address:
-        'https://upload.wikimedia.org/wikipedia/commons/0/01/Bulgan_in_Mongolia.svg',
-    shortDesc:
-        'Булган аймаг нь Монгол орны хойд хэсэг, Хангайн бүсийн уулархаг хэсэгт ордог бөгөөд хойд талаараа ОХУ-тай хиллэдэг. Улаанбаатар, Дархан, Эрдэнэт хотуудтай хатуу хучилттай замаар холбогдсон, Монгол улсын хэвтээ болон босоо тэнхлэгийн төв зам 5 сумаар дайран өнгөрдөг. Тус аймаг нь байгийн үзэсгэлэнт газар ихтэй, аялал жуулчлалын бүс нутагт оршдог. Булган аймгийн нутагт Сэлэнгэ, Орхон, Хануй зэрэг том голууд урсах бөгөөд Харгал, Хунт, Айрхан зэрэг нуурууд, Хульж, Хунт, Хануйн, Асгатын зэрэг рашаан бий.',
-    distanceFromUb: 326,
-    timeToReach: '5 цаг 54 мин',
-    mustVisitPlaces: [
-      '1. Хөгнө тарна байгалийн цогцолборт газар',
-      '2. Уран тогоо уул',
-      '3. Шивээт улааны цогцолбор',
-      '4. Хар бухын балгас',
-      '5. Чин толгойн балгас',
-      '6. Бий булгын балгас',
-      '7. Могойн шинэ ус',
-    ],
-    hotels: ihotels,
-    trips: trips,
-    imageUrl: 'assets/images/img4.jpg',
-  ),
-  Province(
-    name: 'Булган',
-    center: 'Булган',
-    logo:
-        'https://upload.wikimedia.org/wikipedia/commons/a/a3/Mn_coa_bulgan_aimag.svg',
-    address:
-        'https://upload.wikimedia.org/wikipedia/commons/0/01/Bulgan_in_Mongolia.svg',
-    shortDesc:
-        'Булган аймаг нь Монгол орны хойд хэсэг, Хангайн бүсийн уулархаг хэсэгт ордог бөгөөд хойд талаараа ОХУ-тай хиллэдэг. Улаанбаатар, Дархан, Эрдэнэт хотуудтай хатуу хучилттай замаар холбогдсон, Монгол улсын хэвтээ болон босоо тэнхлэгийн төв зам 5 сумаар дайран өнгөрдөг. Тус аймаг нь байгийн үзэсгэлэнт газар ихтэй, аялал жуулчлалын бүс нутагт оршдог. Булган аймгийн нутагт Сэлэнгэ, Орхон, Хануй зэрэг том голууд урсах бөгөөд Харгал, Хунт, Айрхан зэрэг нуурууд, Хульж, Хунт, Хануйн, Асгатын зэрэг рашаан бий.',
-    distanceFromUb: 326,
-    timeToReach: '5 цаг 54 мин',
-    mustVisitPlaces: [
-      '1. Хөгнө тарна байгалийн цогцолборт газар',
-      '2. Уран тогоо уул',
-      '3. Шивээт улааны цогцолбор',
-      '4. Хар бухын балгас',
-      '5. Чин толгойн балгас',
-      '6. Бий булгын балгас',
-      '7. Могойн шинэ ус',
-    ],
-    hotels: ihotels,
-    trips: trips,
-    imageUrl: 'assets/images/img5.jpg',
-  ),
-  Province(
-    name: 'Булган',
-    center: 'Булган',
-    logo:
-        'https://upload.wikimedia.org/wikipedia/commons/a/a3/Mn_coa_bulgan_aimag.svg',
-    address:
-        'https://upload.wikimedia.org/wikipedia/commons/0/01/Bulgan_in_Mongolia.svg',
-    shortDesc:
-        'Булган аймаг нь Монгол орны хойд хэсэг, Хангайн бүсийн уулархаг хэсэгт ордог бөгөөд хойд талаараа ОХУ-тай хиллэдэг. Улаанбаатар, Дархан, Эрдэнэт хотуудтай хатуу хучилттай замаар холбогдсон, Монгол улсын хэвтээ болон босоо тэнхлэгийн төв зам 5 сумаар дайран өнгөрдөг. Тус аймаг нь байгийн үзэсгэлэнт газар ихтэй, аялал жуулчлалын бүс нутагт оршдог. Булган аймгийн нутагт Сэлэнгэ, Орхон, Хануй зэрэг том голууд урсах бөгөөд Харгал, Хунт, Айрхан зэрэг нуурууд, Хульж, Хунт, Хануйн, Асгатын зэрэг рашаан бий.',
-    distanceFromUb: 326,
-    timeToReach: '5 цаг 54 мин',
-    mustVisitPlaces: [
-      '1. Хөгнө тарна байгалийн цогцолборт газар',
-      '2. Уран тогоо уул',
-      '3. Шивээт улааны цогцолбор',
-      '4. Хар бухын балгас',
-      '5. Чин толгойн балгас',
-      '6. Бий булгын балгас',
-      '7. Могойн шинэ ус',
-    ],
-    hotels: ihotels,
-    trips: trips,
-    imageUrl: 'assets/images/img6.jpg',
-  ),
-  Province(
-    name: 'Булган',
-    center: 'Булган',
-    logo:
-        'https://upload.wikimedia.org/wikipedia/commons/a/a3/Mn_coa_bulgan_aimag.svg',
-    address:
-        'https://upload.wikimedia.org/wikipedia/commons/0/01/Bulgan_in_Mongolia.svg',
-    shortDesc:
-        'Булган аймаг нь Монгол орны хойд хэсэг, Хангайн бүсийн уулархаг хэсэгт ордог бөгөөд хойд талаараа ОХУ-тай хиллэдэг. Улаанбаатар, Дархан, Эрдэнэт хотуудтай хатуу хучилттай замаар холбогдсон, Монгол улсын хэвтээ болон босоо тэнхлэгийн төв зам 5 сумаар дайран өнгөрдөг. Тус аймаг нь байгийн үзэсгэлэнт газар ихтэй, аялал жуулчлалын бүс нутагт оршдог. Булган аймгийн нутагт Сэлэнгэ, Орхон, Хануй зэрэг том голууд урсах бөгөөд Харгал, Хунт, Айрхан зэрэг нуурууд, Хульж, Хунт, Хануйн, Асгатын зэрэг рашаан бий.',
-    distanceFromUb: 326,
-    timeToReach: '5 цаг 54 мин',
-    mustVisitPlaces: [
-      '1. Хөгнө тарна байгалийн цогцолборт газар',
-      '2. Уран тогоо уул',
-      '3. Шивээт улааны цогцолбор',
-      '4. Хар бухын балгас',
-      '5. Чин толгойн балгас',
-      '6. Бий булгын балгас',
-      '7. Могойн шинэ ус',
-    ],
-    hotels: ihotels,
-    trips: trips,
-    imageUrl: 'assets/images/img7.jpg',
-  ),
-  Province(
-    name: 'Булган',
-    center: 'Булган',
-    logo:
-        'https://upload.wikimedia.org/wikipedia/commons/a/a3/Mn_coa_bulgan_aimag.svg',
-    address:
-        'https://upload.wikimedia.org/wikipedia/commons/0/01/Bulgan_in_Mongolia.svg',
-    shortDesc:
-        'Булган аймаг нь Монгол орны хойд хэсэг, Хангайн бүсийн уулархаг хэсэгт ордог бөгөөд хойд талаараа ОХУ-тай хиллэдэг. Улаанбаатар, Дархан, Эрдэнэт хотуудтай хатуу хучилттай замаар холбогдсон, Монгол улсын хэвтээ болон босоо тэнхлэгийн төв зам 5 сумаар дайран өнгөрдөг. Тус аймаг нь байгийн үзэсгэлэнт газар ихтэй, аялал жуулчлалын бүс нутагт оршдог. Булган аймгийн нутагт Сэлэнгэ, Орхон, Хануй зэрэг том голууд урсах бөгөөд Харгал, Хунт, Айрхан зэрэг нуурууд, Хульж, Хунт, Хануйн, Асгатын зэрэг рашаан бий.',
-    distanceFromUb: 326,
-    timeToReach: '5 цаг 54 мин',
-    mustVisitPlaces: [
-      '1. Хөгнө тарна байгалийн цогцолборт газар',
-      '2. Уран тогоо уул',
-      '3. Шивээт улааны цогцолбор',
-      '4. Хар бухын балгас',
-      '5. Чин толгойн балгас',
-      '6. Бий булгын балгас',
-      '7. Могойн шинэ ус',
-    ],
-    hotels: ihotels,
-    trips: trips,
-    imageUrl: 'assets/images/img8.jpg',
-  ),
-  Province(
-    name: 'Булган',
-    center: 'Булган',
-    logo:
-        'https://upload.wikimedia.org/wikipedia/commons/a/a3/Mn_coa_bulgan_aimag.svg',
-    address:
-        'https://upload.wikimedia.org/wikipedia/commons/0/01/Bulgan_in_Mongolia.svg',
-    shortDesc:
-        'Булган аймаг нь Монгол орны хойд хэсэг, Хангайн бүсийн уулархаг хэсэгт ордог бөгөөд хойд талаараа ОХУ-тай хиллэдэг. Улаанбаатар, Дархан, Эрдэнэт хотуудтай хатуу хучилттай замаар холбогдсон, Монгол улсын хэвтээ болон босоо тэнхлэгийн төв зам 5 сумаар дайран өнгөрдөг. Тус аймаг нь байгийн үзэсгэлэнт газар ихтэй, аялал жуулчлалын бүс нутагт оршдог. Булган аймгийн нутагт Сэлэнгэ, Орхон, Хануй зэрэг том голууд урсах бөгөөд Харгал, Хунт, Айрхан зэрэг нуурууд, Хульж, Хунт, Хануйн, Асгатын зэрэг рашаан бий.',
-    distanceFromUb: 326,
-    timeToReach: '5 цаг 54 мин',
-    mustVisitPlaces: [
-      '1. Хөгнө тарна байгалийн цогцолборт газар',
-      '2. Уран тогоо уул',
-      '3. Шивээт улааны цогцолбор',
-      '4. Хар бухын балгас',
-      '5. Чин толгойн балгас',
-      '6. Бий булгын балгас',
-      '7. Могойн шинэ ус',
-    ],
-    hotels: ihotels,
-    trips: trips,
-    imageUrl: 'assets/images/img9.jpg',
+    imageUrl: 'assets/provinces/arhangai/img.jpg',
   ),
 ];

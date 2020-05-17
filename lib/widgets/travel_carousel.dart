@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_travel_ui/models/destination_model.dart';
-import 'package:flutter_travel_ui/screens/destination_screen.dart';
+import 'package:flutter_travel_ui/models/trip_model.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class DestinationCarousel extends StatelessWidget {
+class TravelCarousel extends StatelessWidget {
+  TravelCarousel({this.trips});
+  final List<Trip> trips;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -37,21 +39,14 @@ class DestinationCarousel extends StatelessWidget {
           ),
         ),
         Container(
-          height: 300.0,
+          height: 280.0,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: destinations.length,
+            itemCount: trips.length,
             itemBuilder: (BuildContext context, int index) {
-              Destination destination = destinations[index];
+              Trip trip = trips[index];
               return GestureDetector(
-                onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => DestinationScreen(
-                      destination: destination,
-                    ),
-                  ),
-                ),
+                onTap: () {},
                 child: Container(
                   margin: EdgeInsets.only(top: 10.0, bottom: 10.0),
                   width: 210.0,
@@ -61,7 +56,7 @@ class DestinationCarousel extends StatelessWidget {
                       Positioned(
                         bottom: 15.0,
                         child: Container(
-                          height: 120.0,
+                          height: 70.0,
                           width: 200.0,
                           decoration: BoxDecoration(
                             color: Colors.white,
@@ -70,25 +65,25 @@ class DestinationCarousel extends StatelessWidget {
                           child: Padding(
                             padding: EdgeInsets.all(10.0),
                             child: Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
                                 Text(
-                                  '${destination.activities.length}  activities activities activities',
+                                  '${trip.name}',
                                   style: TextStyle(
-                                    fontSize: 22.0,
+                                    fontSize: 18.0,
                                     fontWeight: FontWeight.w600,
                                     letterSpacing: 1.2,
                                   ),
                                   overflow: TextOverflow.ellipsis,
-                                  maxLines: 1,
+                                  maxLines: 2,
                                 ),
-                                Text(
-                                  destination.description,
-                                  style: TextStyle(
-                                    color: Colors.grey,
-                                  ),
-                                ),
+//                                Text(
+//                                  trip.shortDesc,
+//                                  style: TextStyle(
+//                                    color: Colors.grey,
+//                                  ),
+//                                ),
                               ],
                             ),
                           ),
@@ -109,13 +104,14 @@ class DestinationCarousel extends StatelessWidget {
                         child: Stack(
                           children: <Widget>[
                             Hero(
-                              tag: destination.imageUrl,
+                              tag:
+                                  trip.imageUrl + new DateTime.now().toString(),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(20.0),
                                 child: Image(
                                   height: 180.0,
                                   width: 180.0,
-                                  image: AssetImage(destination.imageUrl),
+                                  image: AssetImage(trip.imageUrl),
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -127,7 +123,7 @@ class DestinationCarousel extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
                                   Text(
-                                    destination.city,
+                                    trip.province,
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 24.0,
@@ -144,7 +140,7 @@ class DestinationCarousel extends StatelessWidget {
                                       ),
                                       SizedBox(width: 5.0),
                                       Text(
-                                        destination.country,
+                                        trip.sum,
                                         style: TextStyle(
                                           color: Colors.white,
                                         ),

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_travel_ui/models/hotel_model.dart';
+import 'package:flutter_travel_ui/models/ihotel_model.dart';
 
 class HotelCarousel extends StatelessWidget {
+  HotelCarousel({this.hotels});
+  final List<IHotel> hotels;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -40,7 +43,7 @@ class HotelCarousel extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemCount: hotels.length,
             itemBuilder: (BuildContext context, int index) {
-              Hotel hotel = hotels[index];
+              IHotel hotel = hotels[index];
               return Container(
                 margin: EdgeInsets.all(15.0),
                 width: 180.0,
@@ -73,15 +76,8 @@ class HotelCarousel extends StatelessWidget {
                                   fontWeight: FontWeight.w600,
                                   letterSpacing: 1.2,
                                 ),
-                              ),
-                              SizedBox(height: 2.0),
-                              Text(
-                                hotel.address,
-                                style: TextStyle(
-                                  color: Colors.grey,
-                                ),
                                 overflow: TextOverflow.ellipsis,
-                                maxLines: 2,
+                                maxLines: 1,
                               ),
                             ],
                           ),

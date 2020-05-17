@@ -57,7 +57,6 @@ class ProvinceCarousel extends StatelessWidget {
               return Center(
                 child: GestureDetector(
                   onTap: () {
-                    print('Test one aimag');
                     Navigator.push(
                       context,
                       MaterialPageRoute(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'file:///C:/Users/batorgil/Desktop/Projects/flutter_travel_ui/lib/widgets/header.dart';
-import 'package:flutter_travel_ui/widgets/destination_carousel.dart';
+import 'package:flutter_travel_ui/models/ihotel_model.dart';
+import 'package:flutter_travel_ui/models/trip_model.dart';
+import 'package:flutter_travel_ui/widgets/travel_carousel.dart';
+import 'package:flutter_travel_ui/widgets/header.dart';
 import 'package:flutter_travel_ui/widgets/hotel_carousel.dart';
 import 'package:flutter_travel_ui/widgets/province_carousel.dart';
 
@@ -29,9 +31,13 @@ class _DashboardState extends State<Dashboard> {
                       SizedBox(height: 20.0),
                       ProvinceCarousel(),
                       SizedBox(height: 20.0),
-                      DestinationCarousel(),
+                      TravelCarousel(
+                        trips: trips,
+                      ),
                       SizedBox(height: 20.0),
-                      HotelCarousel(),
+                      HotelCarousel(
+                        hotels: ihotels,
+                      ),
                     ],
                   ),
                 )

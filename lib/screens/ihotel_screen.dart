@@ -21,22 +21,21 @@ class _IHotelState extends State<IHotel> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Colors.blueAccent,
+        color: Colors.white,
         child: SafeArea(
           child: _err
               ? Container(
-                  color: Colors.white,
-                  child: Center(
-                    child: Column(
-                      children: <Widget>[
-                        Text(
-                          "Интернет холболтоо шалгана уу!",
-                          style: TextStyle(
-                            fontSize: 18.0,
-                          ),
+                  width: double.infinity,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        "Интернет холболтоо шалгана уу!",
+                        style: TextStyle(
+                          fontSize: 18.0,
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 )
               : WebView(

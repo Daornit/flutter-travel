@@ -2,6 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_travel_ui/models/province_model.dart';
+import 'package:flutter_travel_ui/widgets/hotel_carousel.dart';
+import 'package:flutter_travel_ui/widgets/image_dialog.dart';
+import 'package:flutter_travel_ui/widgets/travel_carousel.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ProvinceScreen extends StatefulWidget {
@@ -58,7 +61,7 @@ class _ProvinceScreenState extends State<ProvinceScreen> {
                       Container(
                         width: 100,
                         height: 100,
-                        child: Image.network(widget.province.logo),
+                        child: Image.asset(widget.province.logo),
                       ),
                       SizedBox(
                         width: 10.0,
@@ -111,10 +114,20 @@ class _ProvinceScreenState extends State<ProvinceScreen> {
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-              child: Container(
-                width: 100.0,
-                height: 100.0,
-                child: Image.asset('assets/images/arkhangai.png'),
+              child: GestureDetector(
+                onTap: () async {
+                  await showDialog(
+                    context: context,
+                    builder: (_) => ImageDialog(
+                      imageUrl: widget.province.address,
+                    ),
+                  );
+                },
+                child: Container(
+                  width: double.infinity,
+                  height: 100.0,
+                  child: Image.asset('assets/images/arkhangai.png'),
+                ),
               ),
             ),
             Padding(
@@ -145,6 +158,14 @@ class _ProvinceScreenState extends State<ProvinceScreen> {
                   },
                 ),
               ),
+            ),
+            SizedBox(height: 20.0),
+            TravelCarousel(
+              trips: widget.province.trips,
+            ),
+            SizedBox(height: 20.0),
+            HotelCarousel(
+              hotels: widget.province.hotels,
             ),
           ],
         ),
