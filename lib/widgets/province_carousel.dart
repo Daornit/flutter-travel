@@ -43,7 +43,7 @@ class ProvinceCarousel extends StatelessWidget {
           ),
         ),
         Container(
-          height: 240.0,
+          height: 200.0,
           child: GridView.count(
             // Create a grid with 2 columns. If you change the scrollDirection to
             // horizontal, this produces 2 rows.
@@ -51,92 +51,89 @@ class ProvinceCarousel extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             crossAxisCount: 2,
 
-            // Generate 100 widgets that display their index in the List.
             children: List.generate(provinces.length, (index) {
               Province province = provinces[index];
-              return Center(
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => ProvinceScreen(
-                          province: province,
-                        ),
+              return GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => ProvinceScreen(
+                        province: province,
                       ),
-                    );
-                  },
-                  child: Container(
-                    margin: EdgeInsets.all(10.0),
-                    width: 150.0,
-                    child: Stack(
-                      alignment: Alignment.topCenter,
-                      children: <Widget>[
-                        Container(
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(20.0),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black26,
-                                offset: Offset(0.0, 2.0),
-                                blurRadius: 6.0,
-                              ),
-                            ],
-                          ),
-                          child: Stack(
-                            children: <Widget>[
-                              Hero(
-                                tag: province.imageUrl,
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(20.0),
-                                  child: Image(
-                                    height: 100.0,
-                                    width: 150.0,
-                                    image: AssetImage(province.imageUrl),
-                                    fit: BoxFit.cover,
-                                  ),
+                    ),
+                  );
+                },
+                child: Container(
+                  margin: EdgeInsets.all(10.0),
+                  width: 150.0,
+                  child: Stack(
+                    alignment: Alignment.topCenter,
+                    children: <Widget>[
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20.0),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black26,
+                              offset: Offset(0.0, 2.0),
+                              blurRadius: 6.0,
+                            ),
+                          ],
+                        ),
+                        child: Stack(
+                          children: <Widget>[
+                            Hero(
+                              tag: province.imageUrl,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(20.0),
+                                child: Image(
+                                  height: 100.0,
+                                  width: 150.0,
+                                  image: AssetImage(province.imageUrl),
+                                  fit: BoxFit.cover,
                                 ),
                               ),
-                              Positioned(
-                                left: 10.0,
-                                bottom: 10.0,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    Text(
-                                      province.name,
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 16.0,
-                                        fontWeight: FontWeight.w600,
-                                        letterSpacing: 1.2,
-                                      ),
+                            ),
+                            Positioned(
+                              left: 10.0,
+                              bottom: 10.0,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text(
+                                    province.name,
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 16.0,
+                                      fontWeight: FontWeight.w600,
+                                      letterSpacing: 1.2,
                                     ),
-                                    Row(
-                                      children: <Widget>[
-                                        Icon(
-                                          FontAwesomeIcons.locationArrow,
-                                          size: 10.0,
+                                  ),
+                                  Row(
+                                    children: <Widget>[
+                                      Icon(
+                                        FontAwesomeIcons.locationArrow,
+                                        size: 10.0,
+                                        color: Colors.white,
+                                      ),
+                                      SizedBox(width: 5.0),
+                                      Text(
+                                        province.center,
+                                        style: TextStyle(
                                           color: Colors.white,
                                         ),
-                                        SizedBox(width: 5.0),
-                                        Text(
-                                          province.center,
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
                               ),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
                   ),
                 ),
               );

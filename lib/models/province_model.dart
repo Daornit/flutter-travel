@@ -128,7 +128,7 @@ final List<Province> provinces = [
   ),
   Province(
     name: 'Баян-Өлгий',
-    center: '',
+    center: 'Өлгий',
     logo: 'assets/provinces/bayanulgii/logo.png',
     address: 'assets/provinces/bayanulgii/address.jpg',
     shortDesc:
