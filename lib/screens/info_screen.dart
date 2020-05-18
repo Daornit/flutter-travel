@@ -1,5 +1,11 @@
+import 'dart:async';
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_travel_ui/models/info_model.dart';
+import 'package:flutter_travel_ui/widgets/image_dialog.dart';
+import 'package:flutter_travel_ui/widgets/image_dialog_network.dart';
+import 'package:http/http.dart' as http;
 
 class Info extends StatefulWidget {
   @override
@@ -7,143 +13,83 @@ class Info extends StatefulWidget {
 }
 
 class _InfoState extends State<Info> {
-  TextEditingController editingController = TextEditingController();
+  int get count => list.length;
 
-  final originalItems = informations;
-  var items = List<InfoModel>();
+  String _next = null;
+  bool _hasNext = false;
 
-  @override
-  void initState() {
-    items.addAll(originalItems);
-    super.initState();
+  List<InfoModel> list = [];
+
+  Future<String> getData() async {
+    List<InfoModel> temp = [];
+
+    http.Response response = await http
+        .post(Uri.encodeFull('https://api.enwoke.com/graphql'), headers: {
+      "Accept": "application/json",
+      "x-api-key": "F51OUlSm4pmk7FsAQ2PKKY5G1mku5MpG"
+    }, body: {
+      "operationName": "moments",
+      "query":
+          'query moments(\$limit: Int, \$next: String, \$travelerTypes: [ID]) { moments(limit: \$limit, next: \$next, travelerTypes: \$travelerTypes) { hasNext next results { id content thumbnail { url } network } } }',
+      "variables": '{"limit": 15, "next": ' +
+          (_next == null ? 'null' : '"$_next"') +
+          '}',
+    });
+    Map<String, dynamic> instaBody = jsonDecode(response.body);
+
+    List<dynamic> records = instaBody['data']['moments']['results'];
+
+    records.forEach((record) {
+      temp.add(
+        InfoModel(
+          coverImg: record['thumbnail']['url'],
+          description: record['content'],
+        ),
+      );
+    });
+    print(_hasNext);
+    print(temp[0].coverImg);
+    print(temp[0].description);
+
+    setState(() {
+      _hasNext = instaBody['data']['moments']['hasNext'];
+      _next = instaBody['data']['moments']['next'];
+      list.addAll(temp);
+    });
   }
 
-  void filterSearchResults(String query) {
-    List<InfoModel> dummySearchList = List<InfoModel>();
-    dummySearchList.addAll(originalItems);
-    if (query.isNotEmpty) {
-      List<InfoModel> dummyListData = List<InfoModel>();
-      dummySearchList.forEach((item) {
-        if (item.title.toLowerCase().contains(query.toLowerCase().trim())) {
-          dummyListData.add(item);
-        }
-      });
-      setState(() {
-        items.clear();
-        items.addAll(dummyListData);
-      });
-      return;
-    } else {
-      setState(() {
-        items.clear();
-        items.addAll(originalItems);
-      });
-    }
+  void initState() {
+    super.initState();
+    getData();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: Colors.blueAccent,
-        child: SafeArea(
-          child: Container(
-            color: Colors.white,
-            child: Column(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: TextField(
-                    onChanged: filterSearchResults,
-                    controller: editingController,
-                    decoration: InputDecoration(
-                        labelText: "Хайх",
-                        hintText: "Хайх",
-                        prefixIcon: Icon(Icons.search),
-                        border: OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(25.0)))),
-                  ),
+      body: ListView.builder(
+        padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
+        itemCount: list.length,
+        itemBuilder: (BuildContext context, int index) {
+          InfoModel model = list[index];
+          return GestureDetector(
+            onTap: () async {
+              await showDialog(
+                context: context,
+                builder: (_) => ImageDialogNetwork(
+                  imageUrl: model.coverImg,
                 ),
-                Expanded(
-                  child: ListView.builder(
-                    padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
-                    itemCount: items.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      InfoModel information = items[index];
-
-                      return Stack(
-                        children: <Widget>[
-                          Container(
-                            margin: EdgeInsets.fromLTRB(40.0, 5.0, 20.0, 5.0),
-                            height: 120.0,
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(20.0),
-                            ),
-                            child: Padding(
-                              padding:
-                                  EdgeInsets.fromLTRB(100.0, 20.0, 20.0, 20.0),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: <Widget>[
-                                      Container(
-                                        width: 200.0,
-                                        child: Text(
-                                          information.title,
-                                          style: TextStyle(
-                                            fontSize: 18.0,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                          overflow: TextOverflow.ellipsis,
-                                          maxLines: 2,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Text(
-                                    information.type,
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                    ),
-                                  ),
-                                  SizedBox(height: 10.0),
-                                ],
-                              ),
-                            ),
-                          ),
-                          Positioned(
-                            left: 20.0,
-                            top: 15.0,
-                            bottom: 15.0,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(20.0),
-                              child: Image(
-                                width: 110.0,
-                                image: AssetImage(
-                                  information.coverImg,
-                                ),
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
-                        ],
-                      );
-                    },
-                  ),
-                )
-              ],
+              );
+            },
+            child: Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              child: Container(
+                width: double.infinity,
+                child: Image.network(model.coverImg),
+              ),
             ),
-          ),
-        ),
+          );
+        },
       ),
     );
   }
