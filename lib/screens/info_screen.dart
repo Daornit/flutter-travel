@@ -68,27 +68,84 @@ class _InfoState extends State<Info> {
     return Scaffold(
       body: ListView.builder(
         padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
-        itemCount: list.length,
+        itemCount: _hasNext ? list.length + 1 : list.length,
         itemBuilder: (BuildContext context, int index) {
-          InfoModel model = list[index];
-          return GestureDetector(
-            onTap: () async {
-              await showDialog(
-                context: context,
-                builder: (_) => ImageDialogNetwork(
-                  imageUrl: model.coverImg,
-                ),
-              );
-            },
-            child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-              child: Container(
-                width: double.infinity,
-                child: Image.network(model.coverImg),
-              ),
-            ),
-          );
+          return (list.length == index)
+              ? GestureDetector(
+                  onTap: () async {
+                    getData();
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20.0, vertical: 20.0),
+                    child: Container(
+                      width: double.infinity,
+                      child: Center(
+                        child: Text(
+                          'Цааш уншуулах',
+                          style: TextStyle(color: Colors.white, fontSize: 18.0),
+                        ),
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.blueAccent,
+                      ),
+                      height: 50,
+                    ),
+                  ),
+                )
+              : GestureDetector(
+                  onTap: () async {
+                    await showDialog(
+                      context: context,
+                      builder: (_) => ImageDialogNetwork(
+                        imageUrl: list[index].coverImg,
+                      ),
+                    );
+                  },
+                  child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20.0, vertical: 10.0),
+                      child: Stack(
+                        alignment: Alignment.bottomCenter,
+                        children: <Widget>[
+                          Container(
+                            width: double.infinity,
+                            child: Image.network(list[index].coverImg),
+                          ),
+                          Container(
+                            width: double.infinity,
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 20.0, vertical: 5.0),
+                              child: Center(
+                                child: Text(
+                                  list[index].description == null
+                                      ? ""
+                                      : list[index].description,
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 2,
+                                  style: TextStyle(color: Colors.white),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                            ),
+                            decoration: new BoxDecoration(
+                              border: new Border.all(
+                                width: 20.0,
+                                color: Colors.transparent,
+                              ), //color is transparent so that it does not blend with the actual color specified
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(30.0),
+                                topRight: Radius.circular(30.0),
+                              ),
+                              color: new Color.fromRGBO(20, 20, 20,
+                                  0.5), // Specifies the background color and the opacity
+                            ),
+                          )
+                        ],
+                      )),
+                );
         },
       ),
     );
