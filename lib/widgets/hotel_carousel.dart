@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_travel_ui/models/ihotel_model.dart';
+import 'package:flutter_travel_ui/screens/ihotel_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HotelCarousel extends StatelessWidget {
-  HotelCarousel({this.hotels});
   final List<IHotel> hotels;
+
+  final Function(int index, Widget widget) parentChangeMenu;
+  const HotelCarousel({this.parentChangeMenu, this.hotels});
 
   _launchURL(url) async {
     if (await canLaunch(url)) {
@@ -21,33 +24,46 @@ class HotelCarousel extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.0),
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Text(
-                'Буудал & Амралтын газар',
-                style: TextStyle(
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 1.5,
+              Container(
+                width: 200.0,
+                child: Text(
+                  'Зочид буудал, Амралтын газар',
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "Roboto",
+                    letterSpacing: 1.5,
+                  ),
                 ),
               ),
-//              GestureDetector(
-//                onTap: () => print('See All'),
-//                child: Text(
-//                  'Дэлгэрэнгүй',
-//                  style: TextStyle(
-//                    color: Theme.of(context).primaryColor,
-//                    fontSize: 12.0,
-//                    fontWeight: FontWeight.w600,
-//                    letterSpacing: 1.0,
-//                  ),
-//                ),
-//              ),
+              GestureDetector(
+                onTap: () {
+                  parentChangeMenu(
+                    3,
+                    IHotelScreen(
+                      url: 'https://ihotel.mn/',
+                      title: 'IHotel',
+                    ),
+                  );
+                },
+                child: Text(
+                  'Дэлгэрэнгүй',
+                  style: TextStyle(
+                    color: Theme.of(context).primaryColor,
+                    fontSize: 12.0,
+                    fontWeight: FontWeight.w600,
+                    letterSpacing: 1.0,
+                  ),
+                ),
+              ),
             ],
           ),
         ),
         Container(
-          height: 300.0,
+          height: 270.0,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: hotels.length,
@@ -55,52 +71,23 @@ class HotelCarousel extends StatelessWidget {
               IHotel hotel = hotels[index];
               return GestureDetector(
                 onTap: () {
-                  _launchURL(hotel.link);
+                  parentChangeMenu(
+                    3,
+                    IHotelScreen(
+                      url: hotel.link,
+                      title: 'IHotel',
+                    ),
+                  );
                 },
                 child: Container(
                   margin: EdgeInsets.all(15.0),
-                  width: 180.0,
-                  child: Stack(
-                    alignment: Alignment.topCenter,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
-                      Positioned(
-                        bottom: 15.0,
-                        child: Container(
-                          height: 120.0,
-                          width: 180.0,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsets.only(
-                              top: 50,
-                              left: 10.0,
-                              right: 10.0,
-                              bottom: 10.0,
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: <Widget>[
-                                Text(
-                                  hotel.name,
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    fontWeight: FontWeight.w600,
-                                    letterSpacing: 1.2,
-                                  ),
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 2,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
                       Container(
                         decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(20.0),
+                          borderRadius: BorderRadius.circular(5.0),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.black26,
@@ -110,15 +97,37 @@ class HotelCarousel extends StatelessWidget {
                           ],
                         ),
                         child: ClipRRect(
-                          borderRadius: BorderRadius.circular(20.0),
+                          borderRadius: BorderRadius.circular(5.0),
                           child: Image(
                             height: 180.0,
-                            width: 180.0,
+                            width: 250.0,
                             image: AssetImage(hotel.imageUrl),
                             fit: BoxFit.cover,
                           ),
                         ),
-                      )
+                      ),
+                      Container(
+                        width: 250.0,
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                            top: 10.0,
+                            left: 10.0,
+                            right: 10.0,
+                            bottom: 10.0,
+                          ),
+                          child: Text(
+                            hotel.name,
+                            style: TextStyle(
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.w600,
+                              letterSpacing: 1.2,
+                            ),
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 2,
+                            textAlign: TextAlign.left,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),

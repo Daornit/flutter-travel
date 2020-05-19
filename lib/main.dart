@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
       title: 'Feel Mongolia',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        fontFamily: 'Roboto',
         primaryColor: Colors.blueAccent,
         accentColor: Colors.blueGrey,
         scaffoldBackgroundColor: Color(0xFFF3F5F7),

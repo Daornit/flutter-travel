@@ -3,16 +3,16 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-class JoinMe extends StatefulWidget {
-  const JoinMe({this.url, this.title});
+class JoinMeScreen extends StatefulWidget {
+  const JoinMeScreen({this.url, this.title});
   final String url;
   final String title;
 
   @override
-  _JoinMeState createState() => _JoinMeState();
+  _JoinMeScreenState createState() => _JoinMeScreenState();
 }
 
-class _JoinMeState extends State<JoinMe> {
+class _JoinMeScreenState extends State<JoinMeScreen> {
   final Completer<WebViewController> _controller =
       Completer<WebViewController>();
   bool _err = false;

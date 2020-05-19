@@ -20,7 +20,7 @@ class _HelpState extends State<Help> {
             child: Column(
               children: <Widget>[
                 Header(
-                  title: 'Яаралтай тусламж',
+                  title: 'Тусламж',
                 ),
                 Expanded(
                   child: ListView.builder(

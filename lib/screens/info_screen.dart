@@ -3,11 +3,12 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_travel_ui/models/info_model.dart';
-import 'package:flutter_travel_ui/widgets/image_dialog.dart';
-import 'package:flutter_travel_ui/widgets/image_dialog_network.dart';
 import 'package:http/http.dart' as http;
 
 class Info extends StatefulWidget {
+  final Function(int index, Widget widget) parentChangeMenu;
+  Info({this.parentChangeMenu});
+
   @override
   _InfoState createState() => _InfoState();
 }
@@ -47,9 +48,6 @@ class _InfoState extends State<Info> {
         ),
       );
     });
-    print(_hasNext);
-    print(temp[0].coverImg);
-    print(temp[0].description);
 
     setState(() {
       _hasNext = instaBody['data']['moments']['hasNext'];
@@ -58,6 +56,7 @@ class _InfoState extends State<Info> {
     });
   }
 
+  @override
   void initState() {
     super.initState();
     getData();
@@ -87,64 +86,57 @@ class _InfoState extends State<Info> {
                         ),
                       ),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(5),
                         color: Colors.blueAccent,
                       ),
                       height: 50,
                     ),
                   ),
                 )
-              : GestureDetector(
-                  onTap: () async {
-                    await showDialog(
-                      context: context,
-                      builder: (_) => ImageDialogNetwork(
-                        imageUrl: list[index].coverImg,
-                      ),
-                    );
-                  },
-                  child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20.0, vertical: 10.0),
-                      child: Stack(
-                        alignment: Alignment.bottomCenter,
-                        children: <Widget>[
-                          Container(
-                            width: double.infinity,
-                            child: Image.network(list[index].coverImg),
+              : Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 20.0, vertical: 10.0),
+                  child: Stack(
+                    alignment: Alignment.bottomCenter,
+                    children: <Widget>[
+                      Container(
+                        width: double.infinity,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(5.0),
+                          child: Image(
+                            image: NetworkImage(list[index].coverImg),
+                            fit: BoxFit.cover,
                           ),
-                          Container(
-                            width: double.infinity,
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 20.0, vertical: 5.0),
-                              child: Center(
-                                child: Text(
-                                  list[index].description == null
-                                      ? ""
-                                      : list[index].description,
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 2,
-                                  style: TextStyle(color: Colors.white),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
+                        ),
+                      ),
+                      Container(
+                        width: double.infinity,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 10.0),
+                          child: Center(
+                            child: Text(
+                              list[index].description == null
+                                  ? ""
+                                  : list[index].description,
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 2,
+                              style: TextStyle(color: Colors.white),
+                              textAlign: TextAlign.center,
                             ),
-                            decoration: new BoxDecoration(
-                              border: new Border.all(
-                                width: 20.0,
-                                color: Colors.transparent,
-                              ), //color is transparent so that it does not blend with the actual color specified
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(30.0),
-                                topRight: Radius.circular(30.0),
-                              ),
-                              color: new Color.fromRGBO(20, 20, 20,
-                                  0.5), // Specifies the background color and the opacity
-                            ),
-                          )
-                        ],
-                      )),
+                          ),
+                        ),
+                        decoration: new BoxDecoration(
+                          color: new Color.fromRGBO(
+                            20,
+                            20,
+                            20,
+                            0.5,
+                          ), // Specifies the background color and the opacity
+                        ),
+                      )
+                    ],
+                  ),
                 );
         },
       ),

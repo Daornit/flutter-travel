@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+
 import 'package:flutter_travel_ui/models/province_model.dart';
 import 'package:flutter_travel_ui/screens/province_screen.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_travel_ui/screens/provinces_screen.dart';
 
 class ProvinceCarousel extends StatelessWidget {
+  final String title;
+  final List<Province> provinces;
+
+  final Function(int index, Widget widget) parentChangeMenu;
+  const ProvinceCarousel({this.parentChangeMenu, this.title, this.provinces});
+
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-
-    /*24 is for notification bar on Android*/
-    final double itemHeight = (size.height - kToolbarHeight - 24) / 2;
-    final double itemWidth = size.width / 2;
-
     return Column(
       children: <Widget>[
         Padding(
@@ -20,7 +22,7 @@ class ProvinceCarousel extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text(
-                'Аймгууд',
+                title,
                 style: TextStyle(
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,
@@ -28,7 +30,15 @@ class ProvinceCarousel extends StatelessWidget {
                 ),
               ),
               GestureDetector(
-                onTap: () => print('See All'),
+                onTap: () {
+                  this.parentChangeMenu(
+                      1,
+                      Provinces(
+                        title: title,
+                        provinces: provinces,
+                        parentChangeMenu: parentChangeMenu,
+                      ));
+                },
                 child: Text(
                   'дэлгэрэнгүй',
                   style: TextStyle(
@@ -43,101 +53,77 @@ class ProvinceCarousel extends StatelessWidget {
           ),
         ),
         Container(
-          height: 200.0,
-          child: GridView.count(
-            // Create a grid with 2 columns. If you change the scrollDirection to
-            // horizontal, this produces 2 rows.
-            childAspectRatio: (itemWidth / itemHeight),
-            scrollDirection: Axis.horizontal,
-            crossAxisCount: 2,
-
-            children: List.generate(provinces.length, (index) {
-              Province province = provinces[index];
-              return GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => ProvinceScreen(
-                        province: province,
-                      ),
+          width: double.infinity,
+          child: CarouselSlider(
+            options: CarouselOptions(height: 250.0),
+            items: provinces
+                .map(
+                  (item) => Padding(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 15.0,
+                      horizontal: 8.0,
                     ),
-                  );
-                },
-                child: Container(
-                  margin: EdgeInsets.all(10.0),
-                  width: 150.0,
-                  child: Stack(
-                    alignment: Alignment.topCenter,
-                    children: <Widget>[
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(20.0),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black26,
-                              offset: Offset(0.0, 2.0),
-                              blurRadius: 6.0,
-                            ),
-                          ],
-                        ),
-                        child: Stack(
+                    child: GestureDetector(
+                      onTap: () {
+                        parentChangeMenu(
+                          2,
+                          ProvinceScreen(
+                            province: item,
+                            parentChangeMenu: parentChangeMenu,
+                          ),
+                        );
+                      },
+                      child: Container(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Hero(
-                              tag: province.imageUrl,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(20.0),
-                                child: Image(
-                                  height: 100.0,
-                                  width: 150.0,
-                                  image: AssetImage(province.imageUrl),
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            ),
-                            Positioned(
-                              left: 10.0,
-                              bottom: 10.0,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Text(
-                                    province.name,
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.w600,
-                                      letterSpacing: 1.2,
-                                    ),
-                                  ),
-                                  Row(
-                                    children: <Widget>[
-                                      Icon(
-                                        FontAwesomeIcons.locationArrow,
-                                        size: 10.0,
-                                        color: Colors.white,
-                                      ),
-                                      SizedBox(width: 5.0),
-                                      Text(
-                                        province.center,
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                        ),
+                            Center(
+                              child: Hero(
+                                tag: item.imageUrl,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(5.0),
+                                    color: Colors.white,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black26,
+                                        offset: Offset(0.0, 2.0),
+                                        blurRadius: 6.0,
                                       ),
                                     ],
                                   ),
-                                ],
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(5.0),
+                                    child: Image(
+                                      height: 180.0,
+                                      width: double.infinity,
+                                      image: AssetImage(item.imageUrl),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 10.0),
+                              child: Text(
+                                item.name,
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                  letterSpacing: 1.2,
+                                ),
+                              ),
+                            )
                           ],
                         ),
-                      )
-                    ],
+                      ),
+                    ),
                   ),
-                ),
-              );
-            }),
+                )
+                .toList(),
           ),
         ),
       ],

@@ -35,7 +35,7 @@ class _TravelScreenState extends State<TravelScreen> {
                 child: Hero(
                   tag: widget.trip.imageUrl,
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(30.0),
+                    borderRadius: BorderRadius.circular(5.0),
                     child: Image(
                       image: AssetImage(widget.trip.imageUrl),
                       fit: BoxFit.cover,

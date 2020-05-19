@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_travel_ui/models/province_model.dart';
 
 import 'package:flutter_travel_ui/screens/ihotel_screen.dart';
 import 'package:flutter_travel_ui/screens/joinme_screen.dart';
@@ -23,84 +25,34 @@ class _HomeScreenState extends State<HomeScreen> {
     FontAwesomeIcons.home,
     FontAwesomeIcons.bed,
     FontAwesomeIcons.suitcase,
-    FontAwesomeIcons.questionCircle,
   ];
 
   // Active page (Tab)
-  Widget currentScreen = Dashboard(); //initial screen in viewport
+  Widget currentScreen = null;
   final PageStorageBucket bucket = PageStorageBucket();
+
+  changeMenu(int index, Widget widget) {
+    setState(() {
+      currentScreen = widget;
+      _currentTab = index;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    currentScreen = Dashboard(
+      parentChangeMenu: changeMenu,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    double bottom = MediaQuery.of(context).viewInsets.bottom;
-
     return Scaffold(
-      body: Stack(
-        alignment: Alignment.topRight,
-        children: <Widget>[
-          PageStorage(
-            child: currentScreen,
-            bucket: bucket,
-          ),
-          Positioned(
-            top: 0,
-            right: 30,
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  currentScreen = Help();
-                  _currentTab = 5;
-                });
-              },
-              child: Container(
-                width: 80,
-                height: 100,
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 20.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Icon(
-                        _icons[5],
-                        color: Colors.white,
-                      ),
-                      Text(
-                        'яаралтай',
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                decoration: BoxDecoration(
-                  color: Colors.blueAccent.shade700,
-                  borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(10.0),
-                      bottomLeft: Radius.circular(10.0)),
-                ),
-              ),
-            ),
-          ),
-        ],
+      body: PageStorage(
+        child: currentScreen,
+        bucket: bucket,
       ),
-      floatingActionButton: bottom != 0.0
-          ? SizedBox()
-          : FloatingActionButton(
-              child: Icon(
-                _icons[2],
-                color: Colors.white,
-                size: 20,
-              ),
-              backgroundColor: Colors.blueAccent,
-              onPressed: () {
-                setState(() {
-                  currentScreen = Dashboard();
-                  _currentTab = 2;
-                });
-              },
-            ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
         shape: CircularNotchedRectangle(),
         child: Container(
@@ -108,131 +60,137 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
-              Row(
-                children: <Widget>[
-                  MaterialButton(
-                    minWidth: 40,
-                    onPressed: () {
-                      setState(() {
-                        currentScreen = Info();
-                        _currentTab = 0;
-                      });
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Icon(
-                          _icons[0],
-                          color: _currentTab == 0
-                              ? Colors.blueAccent
-                              : Colors.grey,
-                        ),
-                        Text(
-                          'Мэдээ',
-                          style: TextStyle(
-                            color: _currentTab == 0
-                                ? Colors.blueAccent
-                                : Colors.grey,
-                          ),
-                        ),
-                      ],
+              MaterialButton(
+                minWidth: 40,
+                onPressed: () {
+                  changeMenu(2, Dashboard(parentChangeMenu: changeMenu));
+                },
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Icon(
+                      _icons[2],
+                      color: _currentTab == 2 ? Colors.blueAccent : Colors.grey,
                     ),
-                  ),
-                  MaterialButton(
-                    minWidth: 40,
-                    onPressed: () {
-                      setState(() {
-                        currentScreen = Provinces();
-                        _currentTab = 1;
-                      });
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Icon(
-                          _icons[1],
-                          color: _currentTab == 1
-                              ? Colors.blueAccent
-                              : Colors.grey,
-                        ),
-                        Text(
-                          'Аймгууд',
-                          style: TextStyle(
-                            color: _currentTab == 1
-                                ? Colors.blueAccent
-                                : Colors.grey,
-                          ),
-                        ),
-                      ],
+                    Text(
+                      'Нүүр',
+                      style: TextStyle(
+                        color:
+                            _currentTab == 2 ? Colors.blueAccent : Colors.grey,
+                      ),
                     ),
-                  )
-                ],
+                  ],
+                ),
               ),
-              Row(
-                children: <Widget>[
-                  MaterialButton(
-                    minWidth: 40,
-                    onPressed: () {
-                      setState(() {
-                        currentScreen = IHotel(
-                          url: 'https://ihotel.mn/',
-                          title: 'IHotel',
-                        );
-                        _currentTab = 3;
-                      });
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Icon(
-                          _icons[3],
-                          color: _currentTab == 3
-                              ? Colors.blueAccent
-                              : Colors.grey,
-                        ),
-                        Text(
-                          'Буудал',
-                          style: TextStyle(
-                            color: _currentTab == 3
-                                ? Colors.blueAccent
-                                : Colors.grey,
-                          ),
-                        ),
-                      ],
+              MaterialButton(
+                minWidth: 40,
+                onPressed: () {
+                  changeMenu(0, Info(parentChangeMenu: changeMenu));
+                },
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Icon(
+                      _icons[0],
+                      color: _currentTab == 0 ? Colors.blueAccent : Colors.grey,
                     ),
-                  ),
-                  MaterialButton(
-                    minWidth: 40,
-                    onPressed: () {
-                      setState(() {
-                        currentScreen = JoinMe(
-                          url: 'https://joinme.mn/',
-                          title: 'Join me',
-                        );
-                        _currentTab = 4;
-                      });
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Icon(
-                          _icons[4],
-                          color: _currentTab == 4
-                              ? Colors.blueAccent
-                              : Colors.grey,
-                        ),
-                        Text(
-                          'Аяллууд',
-                          style: TextStyle(
-                            color: _currentTab == 4
-                                ? Colors.blueAccent
-                                : Colors.grey,
-                          ),
-                        ),
-                      ],
+                    Text(
+                      'Зураг',
+                      style: TextStyle(
+                        color:
+                            _currentTab == 0 ? Colors.blueAccent : Colors.grey,
+                      ),
                     ),
-                  )
-                ],
+                  ],
+                ),
+              ),
+              MaterialButton(
+                minWidth: 40,
+                onPressed: () {
+                  setState(() {
+                    changeMenu(
+                        1,
+                        Provinces(
+                          parentChangeMenu: changeMenu,
+                          title: "Аймгууд",
+                          provinces: provinces,
+                        ));
+                  });
+                },
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    SizedBox(
+                      width: 30.0,
+                      height: 30.0,
+                      child: SvgPicture.asset(
+                        'assets/images/mongolia.svg',
+                        color:
+                            _currentTab == 1 ? Colors.blueAccent : Colors.grey,
+                        semanticsLabel: 'mongolia',
+                      ),
+                    ),
+                    Text(
+                      'Аймгууд',
+                      style: TextStyle(
+                        color:
+                            _currentTab == 1 ? Colors.blueAccent : Colors.grey,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              MaterialButton(
+                minWidth: 40,
+                onPressed: () {
+                  changeMenu(
+                      4,
+                      JoinMeScreen(
+                          url: 'https://joinme.mn/', title: 'Join me'));
+                },
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Icon(
+                      _icons[4],
+                      color: _currentTab == 4 ? Colors.blueAccent : Colors.grey,
+                    ),
+                    Text(
+                      'Аяллууд',
+                      style: TextStyle(
+                        color:
+                            _currentTab == 4 ? Colors.blueAccent : Colors.grey,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              MaterialButton(
+                minWidth: 40,
+                onPressed: () {
+                  setState(() {
+                    changeMenu(
+                        3,
+                        IHotelScreen(
+                            url: 'https://ihotel.mn/', title: 'Join me'));
+                  });
+                },
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Icon(
+                      _icons[3],
+                      color: _currentTab == 3 ? Colors.blueAccent : Colors.grey,
+                    ),
+                    Text(
+                      'Буудал',
+                      style: TextStyle(
+                        color:
+                            _currentTab == 3 ? Colors.blueAccent : Colors.grey,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

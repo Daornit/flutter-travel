@@ -13,6 +13,8 @@ class ImageDialog extends StatelessWidget {
         height: 200,
         child: PhotoView(
           imageProvider: AssetImage(imageUrl),
+          initialScale: PhotoViewComputedScale.contained * 1.3,
+          backgroundDecoration: BoxDecoration(color: Colors.transparent),
         ),
       ),
     );

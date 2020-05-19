@@ -8,8 +8,10 @@ import 'package:flutter_travel_ui/widgets/travel_carousel.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ProvinceScreen extends StatefulWidget {
-  const ProvinceScreen({this.province});
   final Province province;
+
+  final Function(int index, Widget widget) parentChangeMenu;
+  const ProvinceScreen({this.parentChangeMenu, this.province});
 
   @override
   _ProvinceScreenState createState() => _ProvinceScreenState();
@@ -26,16 +28,10 @@ class _ProvinceScreenState extends State<ProvinceScreen> {
               children: <Widget>[
                 Hero(
                   tag: widget.province.imageUrl,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(30.0),
-                      bottomLeft: Radius.circular(30.0),
-                    ),
-                    child: Image(
-                      width: double.infinity,
-                      image: AssetImage(widget.province.imageUrl),
-                      fit: BoxFit.cover,
-                    ),
+                  child: Image(
+                    width: double.infinity,
+                    image: AssetImage(widget.province.imageUrl),
+                    fit: BoxFit.cover,
                   ),
                 ),
                 Positioned(
@@ -86,21 +82,6 @@ class _ProvinceScreenState extends State<ProvinceScreen> {
                     ],
                   ),
                 ),
-                Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 10.0, vertical: 40.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      IconButton(
-                        icon: Icon(Icons.arrow_back),
-                        iconSize: 30.0,
-                        color: Colors.white,
-                        onPressed: () => Navigator.pop(context),
-                      ),
-                    ],
-                  ),
-                ),
               ],
             ),
             Padding(
@@ -111,6 +92,7 @@ class _ProvinceScreenState extends State<ProvinceScreen> {
                   color: Colors.grey.shade800,
                   fontSize: 18.0,
                 ),
+                textAlign: TextAlign.justify,
               ),
             ),
             Padding(
@@ -127,7 +109,7 @@ class _ProvinceScreenState extends State<ProvinceScreen> {
                 child: Container(
                   width: double.infinity,
                   height: 100.0,
-                  child: Image.asset('assets/images/arkhangai.png'),
+                  child: Image.asset(widget.province.address),
                 ),
               ),
             ),
@@ -163,10 +145,12 @@ class _ProvinceScreenState extends State<ProvinceScreen> {
             SizedBox(height: 20.0),
             TravelCarousel(
               trips: widget.province.trips,
+              parentChangeMenu: this.widget.parentChangeMenu,
             ),
             SizedBox(height: 20.0),
             HotelCarousel(
               hotels: widget.province.hotels,
+              parentChangeMenu: this.widget.parentChangeMenu,
             ),
           ],
         ),

@@ -3,16 +3,16 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-class IHotel extends StatefulWidget {
-  const IHotel({this.url, this.title});
+class IHotelScreen extends StatefulWidget {
+  const IHotelScreen({this.url, this.title});
   final String url;
   final String title;
 
   @override
-  _IHotelState createState() => _IHotelState();
+  _IHotelScreenState createState() => _IHotelScreenState();
 }
 
-class _IHotelState extends State<IHotel> {
+class _IHotelScreenState extends State<IHotelScreen> {
   final Completer<WebViewController> _controller =
       Completer<WebViewController>();
   bool _err = false;
