@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_travel_ui/models/trip_model.dart';
 import 'package:flutter_travel_ui/screens/joinme_screen.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class TravelCarousel extends StatelessWidget {
   final List<Trip> trips;
@@ -10,20 +8,12 @@ class TravelCarousel extends StatelessWidget {
   final Function(int index, Widget widget) parentChangeMenu;
   const TravelCarousel({this.parentChangeMenu, this.trips});
 
-  _launchURL(url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.0),
+          padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -32,12 +22,7 @@ class TravelCarousel extends StatelessWidget {
                 width: 200.0,
                 child: Text(
                   'Онцлох аялал',
-                  style: TextStyle(
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: "Roboto",
-                    letterSpacing: 1.5,
-                  ),
+                  style: Theme.of(context).textTheme.headline2,
                 ),
               ),
               GestureDetector(
@@ -56,7 +41,6 @@ class TravelCarousel extends StatelessWidget {
                     color: Theme.of(context).primaryColor,
                     fontSize: 12.0,
                     fontWeight: FontWeight.w600,
-                    letterSpacing: 1.0,
                   ),
                 ),
               ),
@@ -81,7 +65,7 @@ class TravelCarousel extends StatelessWidget {
                   );
                 },
                 child: Container(
-                  margin: EdgeInsets.all(15.0),
+                  margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
@@ -121,7 +105,6 @@ class TravelCarousel extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 16.0,
                               fontWeight: FontWeight.w600,
-                              letterSpacing: 1.2,
                             ),
                             overflow: TextOverflow.ellipsis,
                             maxLines: 2,

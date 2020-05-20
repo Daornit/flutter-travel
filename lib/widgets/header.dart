@@ -39,7 +39,7 @@ class Header extends StatelessWidget {
         parentChangeMenu != null
             ? Positioned(
                 top: 10,
-                left: 30,
+                left: 6,
                 child: GestureDetector(
                   onTap: () {
                     parentChangeMenu(5, Help());

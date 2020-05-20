@@ -22,54 +22,57 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        color: Colors.blueAccent,
-        child: SafeArea(
-          child: Container(
-            color: Colors.white,
-            child: ListView(
-              children: <Widget>[
-                Header(
-                  title: 'Нүүр хуудас',
-                  parentChangeMenu: this.widget.parentChangeMenu,
-                ),
-                SizedBox(height: 20.0),
-                ProvinceCarousel(
-                  title: "Баруун аймгууд",
-                  provinces: baruunProvinces,
-                  parentChangeMenu: this.widget.parentChangeMenu,
-                ),
-                SizedBox(height: 10.0),
-                ProvinceCarousel(
-                  title: "Хангайн аймгууд",
-                  provinces: hangaiProvinces,
-                  parentChangeMenu: this.widget.parentChangeMenu,
-                ),
-                SizedBox(height: 10.0),
-                ProvinceCarousel(
-                  title: "Төв аймгууд",
-                  provinces: tuvProvinces,
-                  parentChangeMenu: this.widget.parentChangeMenu,
-                ),
-                SizedBox(height: 10.0),
-                ProvinceCarousel(
-                  title: "Зүүн аймгууд",
-                  provinces: zuunProvinces,
-                  parentChangeMenu: this.widget.parentChangeMenu,
-                ),
-                SizedBox(height: 10.0),
-                TravelCarousel(
-                  trips: trips,
-                  parentChangeMenu: this.widget.parentChangeMenu,
-                ),
-                SizedBox(height: 10.0),
-                HotelCarousel(
-                  hotels: ihotels,
-                  parentChangeMenu: this.widget.parentChangeMenu,
-                ),
-              ],
-            ),
+    return Container(
+      color: Colors.blueAccent,
+      child: SafeArea(
+        child: Container(
+          color: Colors.white,
+          child: ListView(
+            children: <Widget>[
+              Header(
+                title: 'Нүүр хуудас',
+                parentChangeMenu: this.widget.parentChangeMenu,
+              ),
+              SizedBox(height: 20.0),
+              ProvinceCarousel(
+                title: "Баруун аймгууд",
+                provinces: baruunProvinces,
+                parentChangeMenu: this.widget.parentChangeMenu,
+              ),
+              ProvinceCarousel(
+                title: "Хангайн аймгууд",
+                provinces: hangaiProvinces,
+                parentChangeMenu: this.widget.parentChangeMenu,
+              ),
+              ProvinceCarousel(
+                title: "Төв аймгууд",
+                provinces: tuvProvinces,
+                parentChangeMenu: this.widget.parentChangeMenu,
+              ),
+              ProvinceCarousel(
+                title: "Зүүн аймгууд",
+                provinces: zuunProvinces,
+                parentChangeMenu: this.widget.parentChangeMenu,
+              ),
+              Container(
+                height: 10.0,
+                width: double.infinity,
+                color: Colors.grey.shade50,
+              ),
+              TravelCarousel(
+                trips: trips,
+                parentChangeMenu: this.widget.parentChangeMenu,
+              ),
+              Container(
+                height: 10.0,
+                width: double.infinity,
+                color: Colors.grey.shade50,
+              ),
+              HotelCarousel(
+                hotels: ihotels,
+                parentChangeMenu: this.widget.parentChangeMenu,
+              ),
+            ],
           ),
         ),
       ),

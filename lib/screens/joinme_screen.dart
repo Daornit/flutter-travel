@@ -19,47 +19,36 @@ class _JoinMeScreenState extends State<JoinMeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        color: Colors.white,
-        child: SafeArea(
-          child: _err
-              ? Container(
-                  width: double.infinity,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        "Интернет холболтоо шалгана уу!",
-                        style: TextStyle(
-                          fontSize: 18.0,
-                        ),
+    return Container(
+      color: Colors.white,
+      child: SafeArea(
+        child: _err
+            ? Container(
+                width: double.infinity,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      "Интернет холболтоо шалгана уу!",
+                      style: TextStyle(
+                        fontSize: 18.0,
                       ),
-                      RaisedButton(
-                        onPressed: () {
-                          setState(() {
-                            _err = false;
-                          });
-                        },
-                        child: const Text('Дахин уншуулах',
-                            style: TextStyle(fontSize: 16)),
-                      ),
-                    ],
-                  ),
-                )
-              : WebView(
-                  initialUrl: widget.url,
-                  javascriptMode: JavascriptMode.unrestricted,
-                  onWebViewCreated: (WebViewController webViewController) {
-                    _controller.complete(webViewController);
-                  },
-                  onWebResourceError: (error) {
-                    setState(() {
-                      _err = true;
-                    });
-                  },
+                    ),
+                  ],
                 ),
-        ),
+              )
+            : WebView(
+                initialUrl: widget.url,
+                javascriptMode: JavascriptMode.unrestricted,
+                onWebViewCreated: (WebViewController webViewController) {
+                  _controller.complete(webViewController);
+                },
+                onWebResourceError: (error) {
+                  setState(() {
+                    _err = true;
+                  });
+                },
+              ),
       ),
     );
   }

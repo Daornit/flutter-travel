@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_travel_ui/models/info_model.dart';
+import 'package:flutter_travel_ui/widgets/header.dart';
 import 'package:http/http.dart' as http;
 
 class Info extends StatefulWidget {
@@ -64,81 +65,94 @@ class _InfoState extends State<Info> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ListView.builder(
-        padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
-        itemCount: _hasNext ? list.length + 1 : list.length,
-        itemBuilder: (BuildContext context, int index) {
-          return (list.length == index)
-              ? GestureDetector(
-                  onTap: () async {
-                    getData();
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 20.0, vertical: 20.0),
-                    child: Container(
-                      width: double.infinity,
-                      child: Center(
-                        child: Text(
-                          'Цааш уншуулах',
-                          style: TextStyle(color: Colors.white, fontSize: 18.0),
-                        ),
-                      ),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        color: Colors.blueAccent,
-                      ),
-                      height: 50,
-                    ),
-                  ),
-                )
-              : Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 20.0, vertical: 10.0),
-                  child: Stack(
-                    alignment: Alignment.bottomCenter,
-                    children: <Widget>[
-                      Container(
-                        width: double.infinity,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(5.0),
-                          child: Image(
-                            image: NetworkImage(list[index].coverImg),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: double.infinity,
+    return Container(
+      color: Colors.blueAccent,
+      child: SafeArea(
+        child: Container(
+          color: Colors.white,
+          child: ListView.builder(
+            padding: EdgeInsets.only(bottom: 20.0),
+            itemCount: _hasNext ? list.length + 2 : list.length + 1,
+            itemBuilder: (BuildContext context, int index) {
+              if (index == 0)
+                return Header(
+                  title: '#FeelMongolia',
+                  parentChangeMenu: this.widget.parentChangeMenu,
+                );
+              else
+                return (list.length == index - 1)
+                    ? GestureDetector(
+                        onTap: () async {
+                          getData();
+                        },
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 10.0),
-                          child: Center(
-                            child: Text(
-                              list[index].description == null
-                                  ? ""
-                                  : list[index].description,
-                              overflow: TextOverflow.ellipsis,
-                              maxLines: 2,
-                              style: TextStyle(color: Colors.white),
-                              textAlign: TextAlign.center,
+                              horizontal: 20.0, vertical: 20.0),
+                          child: Container(
+                            width: double.infinity,
+                            child: Center(
+                              child: Text(
+                                'Цааш уншуулах',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 18.0),
+                              ),
                             ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              color: Colors.blueAccent,
+                            ),
+                            height: 50,
                           ),
                         ),
-                        decoration: new BoxDecoration(
-                          color: new Color.fromRGBO(
-                            20,
-                            20,
-                            20,
-                            0.5,
-                          ), // Specifies the background color and the opacity
-                        ),
                       )
-                    ],
-                  ),
-                );
-        },
+                    : Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20.0, vertical: 10.0),
+                        child: Stack(
+                          alignment: Alignment.bottomCenter,
+                          children: <Widget>[
+                            Container(
+                              width: double.infinity,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(5.0),
+                                child: Image(
+                                  image: NetworkImage(list[index - 1].coverImg),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                            Container(
+                              width: double.infinity,
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 20.0, vertical: 10.0),
+                                child: Center(
+                                  child: Text(
+                                    list[index - 1].description == null
+                                        ? ""
+                                        : list[index - 1].description,
+                                    overflow: TextOverflow.ellipsis,
+                                    maxLines: 2,
+                                    style: TextStyle(color: Colors.white),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ),
+                              ),
+                              decoration: new BoxDecoration(
+                                color: new Color.fromRGBO(
+                                  20,
+                                  20,
+                                  20,
+                                  0.5,
+                                ), // Specifies the background color and the opacity
+                              ),
+                            )
+                          ],
+                        ),
+                      );
+            },
+          ),
+        ),
       ),
     );
   }

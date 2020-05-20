@@ -11,26 +11,24 @@ class Help extends StatefulWidget {
 class _HelpState extends State<Help> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        color: Colors.blueAccent,
-        child: SafeArea(
-          child: Container(
-            color: Colors.white,
-            child: Column(
-              children: <Widget>[
-                Header(
-                  title: 'Тусламж',
+    return Container(
+      color: Colors.blueAccent,
+      child: SafeArea(
+        child: Container(
+          color: Colors.white,
+          child: Column(
+            children: <Widget>[
+              Header(
+                title: 'Тусламж',
+              ),
+              Expanded(
+                child: ListView.builder(
+                  itemBuilder: (BuildContext context, int index) =>
+                      EntryItem(entries[index]),
+                  itemCount: entries.length,
                 ),
-                Expanded(
-                  child: ListView.builder(
-                    itemBuilder: (BuildContext context, int index) =>
-                        EntryItem(entries[index]),
-                    itemCount: entries.length,
-                  ),
-                )
-              ],
-            ),
+              )
+            ],
           ),
         ),
       ),

@@ -13,8 +13,32 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Roboto',
         primaryColor: Colors.blueAccent,
-        accentColor: Colors.blueGrey,
+        accentColor: Colors.blueAccent.shade700,
         scaffoldBackgroundColor: Color(0xFFF3F5F7),
+        textTheme: TextTheme(
+          headline1: TextStyle(
+            fontSize: 24.0,
+            fontWeight: FontWeight.w600,
+            color: Colors.grey.shade900,
+          ),
+          headline2: TextStyle(
+            fontSize: 18.0,
+            fontWeight: FontWeight.w600,
+            fontFamily: "Roboto",
+            color: Colors.grey.shade900,
+          ),
+          headline3: TextStyle(
+            color: Colors.grey.shade700,
+            fontWeight: FontWeight.w500,
+            fontSize: 15.0,
+          ),
+          bodyText1: TextStyle(
+            color: Colors.grey.shade800,
+            fontWeight: FontWeight.w400,
+            fontFamily: 'Roboto',
+            fontSize: 16.0,
+          ),
+        ),
       ),
       home: HomeScreen(),
     );
