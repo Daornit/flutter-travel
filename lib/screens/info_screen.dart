@@ -66,7 +66,7 @@ class _InfoState extends State<Info> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blueAccent,
+      color: Color.fromRGBO(255, 215, 42, 1),
       child: SafeArea(
         child: Container(
           color: Colors.white,
@@ -99,7 +99,7 @@ class _InfoState extends State<Info> {
                             ),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5),
-                              color: Colors.blueAccent,
+                              color: Color.fromRGBO(14, 175, 96, 1),
                             ),
                             height: 50,
                           ),
@@ -125,7 +125,7 @@ class _InfoState extends State<Info> {
                               width: double.infinity,
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(
-                                    horizontal: 20.0, vertical: 10.0),
+                                    horizontal: 20.0, vertical: 20.0),
                                 child: Center(
                                   child: Text(
                                     list[index - 1].description == null
@@ -138,13 +138,16 @@ class _InfoState extends State<Info> {
                                   ),
                                 ),
                               ),
-                              decoration: new BoxDecoration(
-                                color: new Color.fromRGBO(
-                                  20,
-                                  20,
-                                  20,
-                                  0.5,
-                                ), // Specifies the background color and the opacity
+                              decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                  begin: Alignment.bottomCenter,
+                                  end: Alignment.topCenter,
+                                  stops: [0.1, 1.8],
+                                  colors: [
+                                    Colors.green.shade700,
+                                    Colors.transparent,
+                                  ],
+                                ),
                               ),
                             )
                           ],

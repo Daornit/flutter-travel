@@ -12,8 +12,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'Roboto',
-        primaryColor: Colors.blueAccent,
-        accentColor: Colors.blueAccent.shade700,
+        primaryColor: Color.fromRGBO(14, 175, 96, 1),
+        accentColor: Colors.green.shade700,
         scaffoldBackgroundColor: Color(0xFFF3F5F7),
         textTheme: TextTheme(
           headline1: TextStyle(
@@ -36,6 +36,7 @@ class MyApp extends StatelessWidget {
             color: Colors.grey.shade800,
             fontWeight: FontWeight.w400,
             fontFamily: 'Roboto',
+            height: 1.6,
             fontSize: 16.0,
           ),
         ),

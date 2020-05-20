@@ -17,7 +17,7 @@ class _ProvincesState extends State<Provinces> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blueAccent,
+      color: Color.fromRGBO(255, 215, 42, 1),
       child: SafeArea(
         child: Container(
           color: Colors.white,
@@ -37,14 +37,15 @@ class _ProvincesState extends State<Provinces> {
                       padding: const EdgeInsets.symmetric(vertical: 5.0),
                       child: GestureDetector(
                         onTap: () {
-                          this.widget.parentChangeMenu(
-                                1,
-                                ProvinceScreen(
-                                  province: province,
-                                  parentChangeMenu:
-                                      this.widget.parentChangeMenu,
-                                ),
-                              );
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => ProvinceScreen(
+                                province: province,
+                                parentChangeMenu: this.widget.parentChangeMenu,
+                              ),
+                            ),
+                          );
                         },
                         child: Stack(
                           children: <Widget>[
@@ -76,34 +77,22 @@ class _ProvincesState extends State<Provinces> {
                                             maxLines: 2,
                                           ),
                                         ),
-                                        Column(
-                                          children: <Widget>[
-                                            Text(
-                                              'Улаанбаатар',
-                                              style: TextStyle(
-                                                color: Colors.grey,
-                                              ),
-                                            ),
-                                            Text(
-                                              province.distanceFromUb
-                                                      .toString() +
-                                                  ' км',
-                                              style: TextStyle(
-                                                fontSize: 18.0,
-                                                fontWeight: FontWeight.w600,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
                                       ],
                                     ),
                                     Text(
-                                      province.center,
+                                      'Аймгийн төв ' + province.center,
                                       style: TextStyle(
-                                        color: Colors.grey,
+                                        color: Color.fromRGBO(4, 98, 18, 1),
                                       ),
                                     ),
-                                    SizedBox(height: 10.0),
+                                    Text(
+                                      'Улаанбаатараас ' +
+                                          province.distanceFromUb.toString() +
+                                          'км',
+                                      style: TextStyle(
+                                        color: Theme.of(context).primaryColor,
+                                      ),
+                                    ),
                                   ],
                                 ),
                               ),

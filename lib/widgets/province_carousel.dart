@@ -81,13 +81,16 @@ class _ProvinceCarouselState extends State<ProvinceCarousel> {
                   ),
                   child: GestureDetector(
                     onTap: () {
-                      this.widget.parentChangeMenu(
-                            1,
-                            ProvinceScreen(
-                              province: item,
-                              parentChangeMenu: this.widget.parentChangeMenu,
-                            ),
-                          );
+                      print('test');
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => ProvinceScreen(
+                            province: item,
+                            parentChangeMenu: this.widget.parentChangeMenu,
+                          ),
+                        ),
+                      );
                     },
                     child: Container(
                       child: Column(

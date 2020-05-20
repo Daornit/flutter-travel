@@ -23,14 +23,14 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blueAccent,
+      color: Color.fromRGBO(255, 215, 42, 1),
       child: SafeArea(
         child: Container(
           color: Colors.white,
           child: ListView(
             children: <Widget>[
               Header(
-                title: 'Нүүр хуудас',
+                title: 'Нүүр',
                 parentChangeMenu: this.widget.parentChangeMenu,
               ),
               SizedBox(height: 20.0),

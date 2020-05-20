@@ -13,32 +13,41 @@ class Header extends StatelessWidget {
     return Stack(
       children: <Widget>[
         Container(
-          height: 65,
+          height: 120,
           width: double.infinity,
-          child: Center(
-              child: Text(
-            title,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 18.0,
-              fontWeight: FontWeight.bold,
-            ),
-          )),
+          child: Column(
+            children: <Widget>[
+              Image.asset(
+                'assets/images/logo.png',
+                width: 100,
+                height: 80,
+              ),
+              Center(
+                  child: Text(
+                title,
+                style: TextStyle(
+                  color: Color.fromRGBO(4, 98, 18, 1),
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              )),
+            ],
+          ),
           decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.bottomCenter,
               end: Alignment.topCenter,
-              stops: [0.1, 1.5],
+              stops: [0.3, 1.8],
               colors: [
-                Colors.blueAccent.shade200,
-                Colors.blueAccent.shade700,
+                Color.fromRGBO(14, 175, 96, 1),
+                Color.fromRGBO(255, 215, 42, 1),
               ],
             ),
           ),
         ),
         parentChangeMenu != null
             ? Positioned(
-                top: 10,
+                bottom: 10,
                 left: 6,
                 child: GestureDetector(
                   onTap: () {
@@ -52,7 +61,7 @@ class Header extends StatelessWidget {
                       color: Colors.white,
                     ),
                     decoration: BoxDecoration(
-//                color: Colors.blueAccent.shade700,
+//                color: Color.fromRGBO(14, 175, 96, 1).shade700,
                       borderRadius: BorderRadius.all(Radius.circular(5.0)),
                     ),
                   ),

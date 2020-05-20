@@ -12,23 +12,15 @@ class _HelpState extends State<Help> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blueAccent,
+      color: Color.fromRGBO(255, 215, 42, 1),
       child: SafeArea(
         child: Container(
           color: Colors.white,
-          child: Column(
-            children: <Widget>[
-              Header(
-                title: 'Тусламж',
-              ),
-              Expanded(
-                child: ListView.builder(
-                  itemBuilder: (BuildContext context, int index) =>
-                      EntryItem(entries[index]),
-                  itemCount: entries.length,
-                ),
-              )
-            ],
+          child: ListView.builder(
+            itemBuilder: (BuildContext context, int index) => index == 0
+                ? Header(title: 'Тусламж')
+                : EntryItem(entries[index - 1]),
+            itemCount: entries.length + 1,
           ),
         ),
       ),
