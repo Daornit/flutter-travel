@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_travel_ui/models/province_model.dart';
+import 'package:flutter_travel_ui/widgets/back_button.dart';
 import 'package:flutter_travel_ui/widgets/hotel_carousel.dart';
 import 'package:flutter_travel_ui/widgets/image_dialog.dart';
 import 'package:flutter_travel_ui/widgets/travel_carousel.dart';
@@ -26,13 +27,18 @@ class _ProvinceScreenState extends State<ProvinceScreen> {
       backgroundColor: Colors.white,
       body: ListView(
         children: <Widget>[
-          Hero(
-            tag: widget.province.imageUrl,
-            child: Image(
-              width: double.infinity,
-              image: AssetImage(widget.province.imageUrl),
-              fit: BoxFit.cover,
-            ),
+          Stack(
+            children: <Widget>[
+              Hero(
+                tag: widget.province.imageUrl,
+                child: Image(
+                  width: double.infinity,
+                  image: AssetImage(widget.province.imageUrl),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              BackButtonCustom(),
+            ],
           ),
           SizedBox(
             height: 10.0,

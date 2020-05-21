@@ -81,7 +81,6 @@ class _ProvinceCarouselState extends State<ProvinceCarousel> {
                   ),
                   child: GestureDetector(
                     onTap: () {
-                      print('test');
                       Navigator.push(
                         context,
                         MaterialPageRoute(

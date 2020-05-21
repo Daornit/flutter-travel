@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_travel_ui/screens/help_screen.dart';
+import 'package:flutter_travel_ui/widgets/back_button.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Header extends StatelessWidget {
@@ -51,7 +52,12 @@ class Header extends StatelessWidget {
                 left: 6,
                 child: GestureDetector(
                   onTap: () {
-                    parentChangeMenu(5, Help());
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => Help(),
+                      ),
+                    );
                   },
                   child: Container(
                     width: 50,
@@ -67,7 +73,7 @@ class Header extends StatelessWidget {
                   ),
                 ),
               )
-            : Container(),
+            : BackButtonCustom(),
       ],
     );
   }
