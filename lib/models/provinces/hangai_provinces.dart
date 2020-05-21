@@ -46,8 +46,86 @@ final List<Province> hangaiProvinces = [
       'Хар балгас',
       'Билгэ хааны цогцолбор',
     ],
-    hotels: arhangaiHotels,
-    trips: trips,
+    hotels: [
+      IHotel(
+        name: 'Майхан Толгой Жуулчны Бааз',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=305',
+        imageUrl: 'assets/images/hotel1.jpg',
+      ),
+      IHotel(
+        name: 'Өгий Хишиг Жуулчны Бааз',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=386',
+        imageUrl: 'assets/images/hotel2.jpg',
+      ),
+      IHotel(
+        name: 'Бадмаараг Жуулчны Бааз',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=390',
+        imageUrl: 'assets/images/hotel3.jpg',
+      ),
+      IHotel(
+        name: 'Хангай Ресорт',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=136',
+        imageUrl: 'assets/images/hotel4.jpg',
+      ),
+      IHotel(
+        name: 'Дуут Ресорт',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=137',
+        imageUrl: 'assets/images/hotel5.jpg',
+      ),
+      IHotel(
+        name: 'Сүүн Зам Амралтын Газар',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=395',
+        imageUrl: 'assets/images/hotel6.jpg',
+      ),
+      IHotel(
+        name: 'Цэнхэр Жигүүр Жуулчны бааз',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=140',
+        imageUrl: 'assets/images/hotel7.jpg',
+      ),
+      IHotel(
+        name: 'Эх байгаль Жуулчны Бааз',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=141',
+        imageUrl: 'assets/images/hotel8.jpg',
+      ),
+      IHotel(
+        name: 'Өгий Нуур Жуулчны бааз',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=238',
+        imageUrl: 'assets/images/hotel9.jpg',
+      ),
+      IHotel(
+        name: 'Тайхар Жуулчны бааз',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=142',
+        imageUrl: 'assets/images/hotel10.jpg',
+      ),
+      IHotel(
+        name: 'Зочид буудал, амралтын газар захиалах',
+        link: 'https://ihotel.mn/mn/search?hotel=&place=&city=2',
+        imageUrl: 'assets/images/otherhotels.jpg',
+      ),
+    ],
+    trips: [
+      Trip(
+        name: 'Соёл мөргөлийн аялал 1',
+        link: 'https://joinme.mn/products/414_jm-tslavai-arhangai-001',
+        imageUrl: 'assets/images/trip1.jpg',
+      ),
+      Trip(
+        name: 'Соёл мөргөлийн аялал 2',
+        link: 'https://joinme.mn/products/414_jm-tslavai-arhangai-002',
+        imageUrl: 'assets/images/trip2.jpg',
+      ),
+      Trip(
+        name: 'Соёл мөргөлийн аялал 3',
+        link: 'https://joinme.mn/products/414_jm-tslavai-arhangai-003',
+        imageUrl: 'assets/images/trip3.jpg',
+      ),
+      Trip(
+        name: 'Цэнхрийн халуун рашаан',
+        link:
+            'https://joinme.mn/products/414_jm-abtravel-tsenkheriinrashaan-002',
+        imageUrl: 'assets/images/trip4.jpg',
+      ),
+    ],
     imageUrl: 'assets/provinces/arhangai/img.jpg',
   ),
   Province(
@@ -64,8 +142,30 @@ final List<Province> hangaiProvinces = [
       'Айргийн гозгорын Хүннүгийн бүлэг дурсгалт газар',
       'Бөөрөнхий сайр хэмээх байгалийн тогтоц газар',
     ],
-    hotels: List<IHotel>(),
-    trips: List<Trip>(),
+    hotels: [
+      IHotel(
+        name: 'Эрдэнэт Инн зочид буудал',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=278',
+        imageUrl: 'assets/images/hotel22.jpg',
+      ),
+      IHotel(
+        name: 'Зочид буудал, амралтын газар захиалах',
+        link: 'https://ihotel.mn/mn/search?hotel=&place=&city=13',
+        imageUrl: 'assets/images/otherhotels.jpg',
+      ),
+    ],
+    trips: [
+      Trip(
+        name: 'Цаачдын цэнхэр уулс-1',
+        link: 'https://joinme.mn/products/414_jm-ntrails-tsaatan-001',
+        imageUrl: 'assets/images/trip14.jpg',
+      ),
+      Trip(
+        name: 'Цаачдын цэнхэр уулс-2',
+        link: 'https://joinme.mn/products/414_jm-ntrails-tsaatan-002',
+        imageUrl: 'assets/images/trip15.jpg',
+      ),
+    ],
     imageUrl: 'assets/provinces/orhon/img.jpg',
   ),
   Province(
@@ -86,8 +186,41 @@ final List<Province> hangaiProvinces = [
       'Бий булгын балгас',
       'Могойн шинэ ус',
     ],
-    hotels: List<IHotel>(),
-    trips: List<Trip>(),
+    hotels: [
+      IHotel(
+        name: 'Ингэт тур амралт, сувилал',
+        link:
+            'https://ihotel.mn/img/uploads/hotels/a6cb1121bd8d8a27ee1c34220e24feb3.jpg',
+        imageUrl: 'assets/images/hotel13.jpg',
+      ),
+      IHotel(
+        name: 'Зочид буудал, амралтын газар захиалах',
+        link: 'https://ihotel.mn/mn/search?hotel=&place=&city=5',
+        imageUrl: 'assets/images/otherhotels.jpg',
+      ),
+    ],
+    trips: [
+      Trip(
+        name: 'Говийн гайхамшиг',
+        link: 'https://joinme.mn/products/414_jm-met-goviinaylal-001',
+        imageUrl: 'assets/images/trip8.jpg',
+      ),
+      Trip(
+        name: 'Цаачдын цэнхэр уулс-1',
+        link: 'https://joinme.mn/products/414_jm-ntrails-tsaatan-001',
+        imageUrl: 'assets/images/trip9.jpg',
+      ),
+      Trip(
+        name: 'Цаачдын цэнхэр уулс-2',
+        link: 'https://joinme.mn/products/414_jm-ntrails-tsaatan-002',
+        imageUrl: 'assets/images/trip10.jpg',
+      ),
+      Trip(
+        name: 'Монгол шарын даваа',
+        link: 'https://joinme.mn/products/414_jm-ebi-shariidavaa-001',
+        imageUrl: 'assets/images/trip11.jpg',
+      ),
+    ],
     imageUrl: 'assets/provinces/bulgan/img.jpg',
   ),
   Province(
@@ -108,8 +241,90 @@ final List<Province> hangaiProvinces = [
       'Тэвш уул',
       'Төвхөн хийд',
     ],
-    hotels: List<IHotel>(),
-    trips: List<Trip>(),
+    hotels: [
+      IHotel(
+        name: 'Хан Хужирт амралт, рашаан сувиллын цогцолбор',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=417',
+        imageUrl: 'assets/images/hotel23.jpg',
+      ),
+      IHotel(
+        name: 'Мөнхтэнгэр - 1 Жуулчны Бааз',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=273',
+        imageUrl: 'assets/images/hotel24.jpg',
+      ),
+      IHotel(
+        name: 'Хужирт Рашаан Сувилал',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=287',
+        imageUrl: 'assets/images/hotel25.jpg',
+      ),
+      IHotel(
+        name: 'Family Guest House',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=326',
+        imageUrl: 'assets/images/hotel26.jpg',
+      ),
+      IHotel(
+        name: 'Талбиун Лодж',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=111',
+        imageUrl: 'assets/images/hotel27.jpg',
+      ),
+      IHotel(
+        name: 'Их Хорум Зочид Буудал',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=130',
+        imageUrl: 'assets/images/hotel28.jpg',
+      ),
+      IHotel(
+        name: 'Арвайхээр Палас Зочид Буудал',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=135',
+        imageUrl: 'assets/images/hotel29.jpg',
+      ),
+      IHotel(
+        name: 'Sweet Gobi Geolodge',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=402',
+        imageUrl: 'assets/images/hotel30.jpg',
+      ),
+      IHotel(
+        name: 'Анжа гэр кэмп',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=405',
+        imageUrl: 'assets/images/hotel31.jpg',
+      ),
+      IHotel(
+        name: 'Ursa Major Geolodge',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=406',
+        imageUrl: 'assets/images/hotel32.jpg',
+      ),
+      IHotel(
+        name: 'Өргөө жуулчны бааз',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=203',
+        imageUrl: 'assets/images/hotel33.jpg',
+      ),
+      IHotel(
+        name: 'Найман нуур жуулчны бааз',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=242',
+        imageUrl: 'assets/images/hotel34.jpg',
+      ),
+      IHotel(
+        name: 'Зочид буудал, амралтын газар захиалах',
+        link: 'https://ihotel.mn/mn/search?hotel=&place=&city=14',
+        imageUrl: 'assets/images/otherhotels.jpg',
+      ),
+    ],
+    trips: [
+      Trip(
+        name: 'Хүйсийн найман нуур',
+        link: 'https://joinme.mn/products/414_jm-abayar-huisiinnaimannuur-001',
+        imageUrl: 'assets/images/trip16.jpg',
+      ),
+      Trip(
+        name: 'Их богд зуны аялал',
+        link: 'https://joinme.mn/products/414_jm-mazaalaint-ikhbogd-001',
+        imageUrl: 'assets/images/trip17.jpg',
+      ),
+      Trip(
+        name: 'Улаан цутгалан',
+        link: 'https://joinme.mn/products/414_jm-nn-ulaantsutgalan-002',
+        imageUrl: 'assets/images/trip18.jpg',
+      ),
+    ],
     imageUrl: 'assets/provinces/uvurhangai/img.jpg',
   ),
   Province(
@@ -130,8 +345,25 @@ final List<Province> hangaiProvinces = [
       'Шаргалжуутын халуун рашаан',
       'Их Богд уул',
     ],
-    hotels: List<IHotel>(),
-    trips: List<Trip>(),
+    hotels: [
+      IHotel(
+        name: 'Зочид буудал, амралтын газар захиалах',
+        link: 'https://ihotel.mn/mn/search?hotel=&place=&city=4',
+        imageUrl: 'assets/images/otherhotels.jpg',
+      ),
+    ],
+    trips: [
+      Trip(
+        name: 'Их богд зуны аялал',
+        link: 'https://joinme.mn/products/414_jm-mazaalaint-ikhbogd-001',
+        imageUrl: 'assets/images/trip6.jpg',
+      ),
+      Trip(
+        name: 'Говийн гайхамшиг',
+        link: 'https://joinme.mn/products/414_jm-met-goviinaylal-001',
+        imageUrl: 'assets/images/trip7.jpg',
+      ),
+    ],
     imageUrl: 'assets/provinces/bayanhongor/img.jpg',
   ),
 ];

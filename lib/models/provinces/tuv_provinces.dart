@@ -22,8 +22,35 @@ final List<Province> tuvProvinces = [
       'Лам Дондовын рашаан',
       'Хүйтний голын хадны бичээс',
     ],
-    hotels: arhangaiHotels,
-    trips: trips,
+    hotels: [
+      IHotel(
+        name: 'Комфорт зочид буудал',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=339',
+        imageUrl: 'assets/images/hotel14.jpg',
+      ),
+      IHotel(
+        name: 'MBM зочид буудал',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=398',
+        imageUrl: 'assets/images/hotel15.jpg',
+      ),
+      IHotel(
+        name: 'Нью Киви Зочид Буудал',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=277',
+        imageUrl: 'assets/images/hotel16.jpg',
+      ),
+      IHotel(
+        name: 'Зочид буудал, амралтын газар захиалах',
+        link: 'https://ihotel.mn/mn/search?hotel=&place=&city=8',
+        imageUrl: 'assets/images/otherhotels.jpg',
+      ),
+    ],
+    trips: [
+      Trip(
+        name: 'Сэлэнгэ',
+        link: 'https://joinme.mn/products/414_jm-abtravel-saikhaniihutul-001',
+        imageUrl: 'assets/images/trip12.jpg',
+      ),
+    ],
     imageUrl: 'assets/provinces/darhan_uul/img.jpg',
   ),
   Province(
@@ -89,12 +116,29 @@ final List<Province> tuvProvinces = [
       'Дэлгэрхангай уул',
       'Цагаан суварга',
     ],
-    hotels: List<IHotel>(),
-    trips: List<Trip>(),
+    hotels: [
+      IHotel(
+        name: 'Говь Элм Лодж',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=389',
+        imageUrl: 'assets/images/hotel20.jpg',
+      ),
+      IHotel(
+        name: 'Зочид буудал, амралтын газар захиалах',
+        link: 'https://ihotel.mn/mn/search?hotel=&place=&city=11',
+        imageUrl: 'assets/images/otherhotels.jpg',
+      ),
+    ],
+    trips: [
+      Trip(
+        name: 'Говийн гайхамшиг',
+        link: 'https://joinme.mn/products/414_jm-met-goviinaylal-001',
+        imageUrl: 'assets/images/trip13.jpg',
+      ),
+    ],
     imageUrl: 'assets/provinces/dundgovi/img.jpg',
   ),
   Province(
-    name: 'Говьсүмбэр',
+    name: 'Говь-Сүмбэр',
     center: 'Чойр',
     logo: 'assets/provinces/govisumber/logo.png',
     address: 'assets/provinces/govisumber/address.jpg',
@@ -111,7 +155,13 @@ final List<Province> tuvProvinces = [
       'Дугар мээрэнгийн хөшөө',
       'Цоорхойн рашаан',
     ],
-    hotels: List<IHotel>(),
+    hotels: [
+      IHotel(
+        name: 'Зочид буудал, амралтын газар захиалах',
+        link: 'https://ihotel.mn/mn/search?hotel=&place=&city=7',
+        imageUrl: 'assets/images/otherhotels.jpg',
+      ),
+    ],
     trips: List<Trip>(),
     imageUrl: 'assets/provinces/govisumber/img.jpg',
   ),
@@ -133,7 +183,18 @@ final List<Province> tuvProvinces = [
       'Эргэлийн зоо',
       'Нүдэнгийн хонхор',
     ],
-    hotels: List<IHotel>(),
+    hotels: [
+      IHotel(
+        name: 'Хурговь зочид буудал',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=419',
+        imageUrl: 'assets/images/hotel17.jpg',
+      ),
+      IHotel(
+        name: 'Зочид буудал, амралтын газар захиалах',
+        link: 'https://ihotel.mn/mn/search?hotel=&place=&city=9',
+        imageUrl: 'assets/images/otherhotels.jpg',
+      ),
+    ],
     trips: List<Trip>(),
     imageUrl: 'assets/provinces/dornogovi/img.jpg',
   ),

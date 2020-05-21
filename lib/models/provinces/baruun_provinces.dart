@@ -22,8 +22,24 @@ final List<Province> baruunProvinces = [
       'Толбо нуур',
       'Ачит нуур',
     ],
-    hotels: bayanulgiiHotels,
-    trips: trips,
+    hotels: [
+      IHotel(
+        name: 'Eagles Nest зочид буудал',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=361',
+        imageUrl: 'assets/images/hotel11.jpg',
+      ),
+      IHotel(
+        name: 'Altai Expeditions Guest House/Hostel',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=361',
+        imageUrl: 'assets/images/hotel12.jpg',
+      ),
+      IHotel(
+        name: 'Зочид буудал, амралтын газар захиалах',
+        link: 'https://ihotel.mn/mn/search?hotel=&place=&city=3',
+        imageUrl: 'assets/images/otherhotels.jpg',
+      ),
+    ],
+    trips: bayanulgiiTrips,
     imageUrl: 'assets/provinces/bayanulgii/img.jpg',
   ),
   Province(
@@ -70,7 +86,18 @@ final List<Province> baruunProvinces = [
       'Идэр голын буган хөшөөт дурсгал',
       'Сангийн хэрмийн туурь',
     ],
-    hotels: List<IHotel>(),
+    hotels: [
+      IHotel(
+        name: 'Хожуулын гол жуулчны бааз',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=274',
+        imageUrl: 'assets/images/hotel21.jpg',
+      ),
+      IHotel(
+        name: 'Зочид буудал, амралтын газар захиалах',
+        link: 'https://ihotel.mn/mn/search?hotel=&place=&city=12',
+        imageUrl: 'assets/images/otherhotels.jpg',
+      ),
+    ],
     trips: List<Trip>(),
     imageUrl: 'assets/provinces/zavhan/img.jpg',
   ),
@@ -118,8 +145,22 @@ final List<Province> baruunProvinces = [
       'Эрээн нуур',
       'Шаахар толгой',
     ],
-    hotels: List<IHotel>(),
+    hotels: [
+      IHotel(
+        name: 'Зочид буудал, амралтын газар захиалах',
+        link: 'https://ihotel.mn/mn/search?hotel=&place=&city=6',
+        imageUrl: 'assets/images/otherhotels.jpg',
+      ),
+    ],
     trips: List<Trip>(),
     imageUrl: 'assets/provinces/govi_altai/img.jpg',
+  ),
+];
+
+final List<Trip> bayanulgiiTrips = [
+  Trip(
+    name: 'Алтайн уулсын хаяанд',
+    link: 'https://joinme.mn/products/414_jm-met-altaitavanbogd-003',
+    imageUrl: 'assets/images/trip5.jpg',
   ),
 ];

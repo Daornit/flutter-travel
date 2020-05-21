@@ -48,7 +48,23 @@ final List<Province> zuunProvinces = [
       'Халх гол',
       'Вангийн цагаан уул',
     ],
-    hotels: List<IHotel>(),
+    hotels: [
+      IHotel(
+        name: '',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=300',
+        imageUrl: 'assets/images/hotel18.jpg',
+      ),
+      IHotel(
+        name: '',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=320',
+        imageUrl: 'assets/images/hotel19.jpg',
+      ),
+      IHotel(
+        name: 'Зочид буудал, амралтын газар захиалах',
+        link: 'https://ihotel.mn/mn/search?hotel=&place=&city=10',
+        imageUrl: 'assets/images/otherhotels.jpg',
+      ),
+    ],
     trips: List<Trip>(),
     imageUrl: 'assets/provinces/dornod/img.jpg',
   ),
