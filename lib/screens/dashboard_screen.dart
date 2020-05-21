@@ -59,8 +59,8 @@ class _DashboardState extends State<Dashboard> {
                 width: double.infinity,
                 color: Colors.grey.shade50,
               ),
-              TravelCarousel(
-                trips: trips,
+              HotelCarousel(
+                hotels: ihotels,
                 parentChangeMenu: this.widget.parentChangeMenu,
               ),
               Container(
@@ -68,8 +68,8 @@ class _DashboardState extends State<Dashboard> {
                 width: double.infinity,
                 color: Colors.grey.shade50,
               ),
-              HotelCarousel(
-                hotels: ihotels,
+              TravelCarousel(
+                trips: trips,
                 parentChangeMenu: this.widget.parentChangeMenu,
               ),
             ],
