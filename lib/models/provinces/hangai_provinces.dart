@@ -22,8 +22,55 @@ final List<Province> hangaiProvinces = [
       'Дархадын 13 овоо',
       'Цаатны нутаг',
     ],
-    hotels: List<IHotel>(),
-    trips: List<Trip>(),
+    hotels: [
+      IHotel(
+        name: '2К Ресорт',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=313',
+        imageUrl: 'assets/images/hotel60.jpg',
+      ),
+      IHotel(
+        name: 'Арт 88 Ресорт',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=114',
+        imageUrl: 'assets/images/hotel61.jpg',
+      ),
+      IHotel(
+        name: 'Гурван Эрдэнэ Жуулчны бааз',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=119',
+        imageUrl: 'assets/images/hotel62.jpg',
+      ),
+      IHotel(
+        name: 'Хөвсгөл Эко Тур Жуулчны Бааз',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=185',
+        imageUrl: 'assets/images/hotel63.jpg',
+      ),
+      IHotel(
+        name: 'Ашихай Жуулчны Бааз',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=211',
+        imageUrl: 'assets/images/hotel64.jpg',
+      ),
+      IHotel(
+        name: 'Зочид буудал, амралтын газар захиалах',
+        link: 'https://ihotel.mn/mn/search?hotel=&place=&city=21',
+        imageUrl: 'assets/images/otherhotels.jpg',
+      ),
+    ],
+    trips: [
+      Trip(
+        name: 'Мэргэжлийн Скуба шумбалтын аялал',
+        link: 'https://joinme.mn/products/414_jm-gsea-scubadiving-001',
+        imageUrl: 'assets/images/trip27.jpg',
+      ),
+      Trip(
+        name: 'Цаачдын цэнхэр уулс-1',
+        link: 'https://joinme.mn/products/414_jm-ntrails-tsaatan-001',
+        imageUrl: 'assets/images/trip28.jpg',
+      ),
+      Trip(
+        name: 'Цаачдын цэнхэр уулс-2',
+        link: 'https://joinme.mn/products/414_jm-ntrails-tsaatan-002',
+        imageUrl: 'assets/images/trip29.jpg',
+      ),
+    ],
     imageUrl: 'assets/provinces/huvsgul/img.jpg',
   ),
   Province(

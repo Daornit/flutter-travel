@@ -71,8 +71,30 @@ final List<Province> tuvProvinces = [
       'Дуут хад',
       'Сайханы хөтөл',
     ],
-    hotels: List<IHotel>(),
-    trips: List<Trip>(),
+    hotels: [
+      IHotel(
+        name: 'Нандин амралтын газар',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=370',
+        imageUrl: 'assets/images/hotel44.jpg',
+      ),
+      IHotel(
+        name: 'Зочид буудал, амралтын газар захиалах',
+        link: 'https://ihotel.mn/mn/search?hotel=&place=&city=17',
+        imageUrl: 'assets/images/otherhotels.jpg',
+      ),
+    ],
+    trips: [
+      Trip(
+        name: 'Сэлэнгэ',
+        link: 'https://joinme.mn/products/414_jm-abtravel-saikhaniihutul-001',
+        imageUrl: 'assets/images/trip12.jpg',
+      ),
+      Trip(
+        name: 'Амар баясгалан хийдийн аялал',
+        link: 'https://joinme.mn/products/414_jm-abtravel-amarbayasgalant-003',
+        imageUrl: 'assets/images/trip19.jpg',
+      ),
+    ],
     imageUrl: 'assets/provinces/selenge/img.jpg',
   ),
   Province(
@@ -93,8 +115,80 @@ final List<Province> tuvProvinces = [
       'Тоньюукукын гэрэлт хөшөөний бичээс, цогцолбор дурсгал',
       'Цогт хунтайжийн дуутын хадны бичээс',
     ],
-    hotels: List<IHotel>(),
-    trips: List<Trip>(),
+    hotels: [
+      IHotel(
+        name: 'Мандала Блисс Монголиа Ресорт',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=281',
+        imageUrl: 'assets/images/hotel45.jpg',
+      ),
+      IHotel(
+        name: 'Монголын нууц товчоо амралтын газар',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=107',
+        imageUrl: 'assets/images/hotel46.jpg',
+      ),
+      IHotel(
+        name: 'Нархан Гэр Бүлийн Амралт',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=286',
+        imageUrl: 'assets/images/hotel47.jpg',
+      ),
+      IHotel(
+        name: 'Магнолиа Ресорт',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=400',
+        imageUrl: 'assets/images/hotel48.jpg',
+      ),
+      IHotel(
+        name: 'Дөрвөн Улирал Амралтын Газар',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=179',
+        imageUrl: 'assets/images/hotel49.jpg',
+      ),
+      IHotel(
+        name: 'Монголын тал нутаг жуулчны бааз',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=109',
+        imageUrl: 'assets/images/hotel50.jpg',
+      ),
+      IHotel(
+        name: 'Зочид буудал, амралтын газар захиалах',
+        link: 'https://ihotel.mn/mn/search?hotel=&place=&city=18',
+        imageUrl: 'assets/images/otherhotels.jpg',
+      ),
+    ],
+    trips: [
+      Trip(
+        name: 'Улаан цутгалан',
+        link: 'https://joinme.mn/products/414_jm-nn-ulaantsutgalan-002',
+        imageUrl: 'assets/images/trip20.jpg',
+      ),
+      Trip(
+        name: 'Амар баясгалан хийдийн аялал',
+        link: 'https://joinme.mn/products/414_jm-abtravel-amarbayasgalant-003',
+        imageUrl: 'assets/images/trip21.jpg',
+      ),
+      Trip(
+        name: 'Хагийн хар нуур',
+        link: 'https://joinme.mn/products/414_jm-bagaa-hagiinharnuur-001',
+        imageUrl: 'assets/images/trip22.jpg',
+      ),
+      Trip(
+        name: 'Зэрлэг амьтан ажиглах аялал',
+        link: 'https://joinme.mn/products/414_jm-hustainuruu-001',
+        imageUrl: 'assets/images/trip23.jpg',
+      ),
+      Trip(
+        name: 'Тэрэлжид хамтдаа',
+        link: 'https://joinme.mn/products/414_jm-nn-terelj-001',
+        imageUrl: 'assets/images/trip24.jpg',
+      ),
+      Trip(
+        name: 'Экстрим аяллын багц 1',
+        link: 'https://joinme.mn/products/414_jm-etrek-zipline-001',
+        imageUrl: 'assets/images/trip25.jpg',
+      ),
+      Trip(
+        name: 'Майхантай дугуйн аялал',
+        link: 'https://joinme.mn/products/414_jm-met-duguinayalal-002',
+        imageUrl: 'assets/images/trip26.png',
+      ),
+    ],
     imageUrl: 'assets/provinces/tuv/img.jpg',
   ),
   Province(
@@ -218,8 +312,60 @@ final List<Province> tuvProvinces = [
       'Сангийн далай',
       'Галбын гурван хийд',
     ],
-    hotels: List<IHotel>(),
-    trips: List<Trip>(),
+    hotels: [
+      IHotel(
+        name: 'Говь Дисковери Тур - Говь Жуулчны Бааз',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=268',
+        imageUrl: 'assets/images/hotel35.jpg',
+      ),
+      IHotel(
+        name: 'Говь Дисковери Тур - Хонгор Жуулчны Бааз',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=269',
+        imageUrl: 'assets/images/hotel36.jpg',
+      ),
+      IHotel(
+        name: 'Дүнгэнээ Жуулчны Бааз',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=272',
+        imageUrl: 'assets/images/hotel37.jpg',
+      ),
+      IHotel(
+        name: 'Ханбогд Жуулчны Бааз',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=327',
+        imageUrl: 'assets/images/hotel38.jpg',
+      ),
+      IHotel(
+        name: 'Хан Уул Зочид буудал',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=132',
+        imageUrl: 'assets/images/hotel39.jpg',
+      ),
+      IHotel(
+        name: 'Говийн Баянбүрд Жуулчны Бааз',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=128',
+        imageUrl: 'assets/images/hotel40.jpg',
+      ),
+      IHotel(
+        name: 'Говь Сэндс зочид буудал',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=128',
+        imageUrl: 'assets/images/hotel41.jpg',
+      ),
+      IHotel(
+        name: 'Говь Мираж Жуулчны Бааз',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=387',
+        imageUrl: 'assets/images/hotel42.jpg',
+      ),
+      IHotel(
+        name: 'Зочид буудал, амралтын газар захиалах',
+        link: 'https://ihotel.mn/mn/search?hotel=&place=&city=15',
+        imageUrl: 'assets/images/otherhotels.jpg',
+      ),
+    ],
+    trips: [
+      Trip(
+        name: 'Говийн гайхамшиг',
+        link: 'https://joinme.mn/products/414_jm-met-goviinaylal-001',
+        imageUrl: 'assets/images/trip8.jpg',
+      ),
+    ],
     imageUrl: 'assets/provinces/umnugovi/img.jpg',
   ),
 ];

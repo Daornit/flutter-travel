@@ -39,7 +39,13 @@ final List<Province> baruunProvinces = [
         imageUrl: 'assets/images/otherhotels.jpg',
       ),
     ],
-    trips: bayanulgiiTrips,
+    trips: [
+      Trip(
+        name: 'Алтайн уулсын хаяанд',
+        link: 'https://joinme.mn/products/414_jm-met-altaitavanbogd-003',
+        imageUrl: 'assets/images/trip5.jpg',
+      ),
+    ],
     imageUrl: 'assets/provinces/bayanulgii/img.jpg',
   ),
   Province(
@@ -62,7 +68,38 @@ final List<Province> baruunProvinces = [
       'Дэглий цагаан уул',
       'Зураагийн улаан хадны зураг',
     ],
-    hotels: List<IHotel>(),
+    hotels: [
+      IHotel(
+        name: 'Тээл парк амралт аялал жуулчлалын цогцолбор',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=332',
+        imageUrl: 'assets/images/hotel51.jpg',
+      ),
+      IHotel(
+        name: 'Гранд зочид буудал',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=259',
+        imageUrl: 'assets/images/hotel52.jpg',
+      ),
+      IHotel(
+        name: 'Их Наяд Цогцолбор',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=258',
+        imageUrl: 'assets/images/hotel53.jpg',
+      ),
+      IHotel(
+        name: 'Ачит Нуур Зочид Буудал',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=256',
+        imageUrl: 'assets/images/hotel54.jpg',
+      ),
+      IHotel(
+        name: 'Хэцүү хад жуулчны бааз',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=283',
+        imageUrl: 'assets/images/hotel55.jpg',
+      ),
+      IHotel(
+        name: 'Зочид буудал, амралтын газар захиалах',
+        link: 'https://ihotel.mn/mn/search?hotel=&place=&city=19',
+        imageUrl: 'assets/images/otherhotels.jpg',
+      ),
+    ],
     trips: List<Trip>(),
     imageUrl: 'assets/provinces/uvs/img.jpg',
   ),
@@ -121,7 +158,28 @@ final List<Province> baruunProvinces = [
       'Цамбагарав уулын байгалийн цогцолборт газар',
       'Ишгэн толгойн хадны зураг',
     ],
-    hotels: List<IHotel>(),
+    hotels: [
+      IHotel(
+        name: 'Минж Зочид Буудал',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=367',
+        imageUrl: 'assets/images/hotel57.jpg',
+      ),
+      IHotel(
+        name: 'Дөргөн Хатан жуулчны бааз',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=369',
+        imageUrl: 'assets/images/hotel58.jpg',
+      ),
+      IHotel(
+        name: 'Гурван Сэнхэр Жуулчны бааз',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=241',
+        imageUrl: 'assets/images/hotel59.jpg',
+      ),
+      IHotel(
+        name: 'Зочид буудал, амралтын газар захиалах',
+        link: 'https://ihotel.mn/mn/search?hotel=&place=&city=20',
+        imageUrl: 'assets/images/otherhotels.jpg',
+      ),
+    ],
     trips: List<Trip>(),
     imageUrl: 'assets/provinces/hovd/img.jpg',
   ),
@@ -154,13 +212,5 @@ final List<Province> baruunProvinces = [
     ],
     trips: List<Trip>(),
     imageUrl: 'assets/provinces/govi_altai/img.jpg',
-  ),
-];
-
-final List<Trip> bayanulgiiTrips = [
-  Trip(
-    name: 'Алтайн уулсын хаяанд',
-    link: 'https://joinme.mn/products/414_jm-met-altaitavanbogd-003',
-    imageUrl: 'assets/images/trip5.jpg',
   ),
 ];

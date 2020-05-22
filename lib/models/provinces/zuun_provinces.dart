@@ -24,7 +24,18 @@ final List<Province> zuunProvinces = [
       'Рашаан хад',
       'Дуурлиг нарсны Хүннүгийн булш',
     ],
-    hotels: List<IHotel>(),
+    hotels: [
+      IHotel(
+        name: 'Чингисийн Гурван Нуур  Жуулчны Бааз',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=246',
+        imageUrl: 'assets/images/hotel65.jpg',
+      ),
+      IHotel(
+        name: 'Зочид буудал, амралтын газар захиалах',
+        link: 'https://ihotel.mn/mn/search?hotel=&place=&city=22',
+        imageUrl: 'assets/images/otherhotels.jpg',
+      ),
+    ],
     trips: List<Trip>(),
     imageUrl: 'assets/provinces/hentii/img.jpg',
   ),
@@ -50,12 +61,12 @@ final List<Province> zuunProvinces = [
     ],
     hotels: [
       IHotel(
-        name: '',
+        name: 'Буйр нуур ресорт',
         link: 'https://ihotel.mn/mn/search/hotel?hotel=300',
         imageUrl: 'assets/images/hotel18.jpg',
       ),
       IHotel(
-        name: '',
+        name: 'Чойбалсан зочид буудал',
         link: 'https://ihotel.mn/mn/search/hotel?hotel=320',
         imageUrl: 'assets/images/hotel19.jpg',
       ),
@@ -86,7 +97,18 @@ final List<Province> zuunProvinces = [
       'Хунгийн чуулган',
       'Егүзэрийн хийд',
     ],
-    hotels: List<IHotel>(),
+    hotels: [
+      IHotel(
+        name: 'Наадаан ресорт',
+        link: 'https://ihotel.mn/mn/search/hotel?hotel=324',
+        imageUrl: 'assets/images/hotel43.jpg',
+      ),
+      IHotel(
+        name: 'Зочид буудал, амралтын газар захиалах',
+        link: 'https://ihotel.mn/mn/search?hotel=&place=&city=16',
+        imageUrl: 'assets/images/otherhotels.jpg',
+      ),
+    ],
     trips: List<Trip>(),
     imageUrl: 'assets/provinces/sukhbaatar/img.jpg',
   ),

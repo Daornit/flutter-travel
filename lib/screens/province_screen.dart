@@ -33,6 +33,7 @@ class _ProvinceScreenState extends State<ProvinceScreen> {
                   tag: widget.province.imageUrl,
                   child: Image(
                     width: double.infinity,
+                    height: 300.0,
                     image: AssetImage(widget.province.imageUrl),
                     fit: BoxFit.cover,
                   ),
